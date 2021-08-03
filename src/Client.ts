@@ -1,4 +1,4 @@
-import { Token } from "./Ramune";
+import { Token } from "./Responses/Token";
 import { Endpoints } from "./Endpoints";
 import {
     BeatmapLeaderboardScope,

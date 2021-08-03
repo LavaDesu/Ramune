@@ -1,9 +1,9 @@
 import { Client } from "./Client";
 import { Endpoints } from "./Endpoints";
+import { Token } from "./Responses/Token";
 import {
     GrantType,
-    RequestType,
-    TokenType
+    RequestType
 } from "./Enums";
 import { RequestHandler } from "./RequestHandler";
 
@@ -106,17 +106,5 @@ export class UserClient extends Client {
         return token;
     }
 }
-
-/** OAuth Token */
-export type Token = {
-    /** Type of token */
-    token_type: TokenType;
-    /** Time in seconds after which the access token will be expired */
-    expires_in: number;
-    /** The access token */
-    access_token: string;
-    /** The (new) refresh token */
-    refresh_token?: string;
-};
 
 export { Client };
