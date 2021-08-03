@@ -85,6 +85,5 @@ export * from "./Client";
 export * from "./Endpoints";
 export * from "./Enums";
 export * from "./RequestHandler";
+export * from "./Responses";
 export * from "./UserClient";
-
-export * as Responses from "./Responses";
