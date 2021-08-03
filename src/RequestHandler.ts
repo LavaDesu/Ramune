@@ -2,6 +2,7 @@ import { IncomingMessage, RequestOptions } from "http";
 import { request } from "https";
 import { parse, format, UrlWithStringQuery } from "url";
 
+import { Bucket } from "./Bucket";
 import { RequestType } from "./Enums";
 
 // import { version as VERSION } from "../package.json";
@@ -12,11 +13,21 @@ const VERSION = "0.3.0";
  */
 export class RequestHandler { // TODO: Other request types
     private readonly defaultHost: string;
+    private readonly bucket: Bucket;
 
     constructor(options?: {
         defaultHost?: string;
+        rateLimit?: {
+            limit: number;
+            interval: number;
+        };
     }) {
         this.defaultHost = options?.defaultHost ?? "osu.ppy.sh";
+
+        const limit = options?.rateLimit?.limit ?? 200;
+        const interval = options?.rateLimit?.interval ?? 60e3;
+
+        this.bucket = new Bucket(limit, interval);
     }
 
     /**
@@ -34,6 +45,7 @@ export class RequestHandler { // TODO: Other request types
         });
 
         const serializedData: RequestOptions = this.serializeRequest(data);
+        await this.bucket.queue();
         const req = request(serializedData)
             .once("response", (res: IncomingMessage) => {
                 res.setEncoding("utf8");

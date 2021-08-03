@@ -81,6 +81,7 @@ export class Ramune extends Client {
     }
 }
 
+export * from "./Bucket";
 export * from "./Client";
 export * from "./Endpoints";
 export * from "./Enums";
