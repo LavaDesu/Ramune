@@ -7,12 +7,18 @@ import { RequestType } from "./Enums";
 // import { version as VERSION } from "../package.json";
 const VERSION = "0.3.0";
 
-const baseURL: string = "osu.ppy.sh";
-
 /**
- * Sends and Handles requests
+ * Sends and handles requests
  */
-export class RequestHandler { //TODO: Other request types
+export class RequestHandler { // TODO: Other request types
+    private readonly defaultHost: string;
+
+    constructor(options?: {
+        defaultHost?: string;
+    }) {
+        this.defaultHost = options?.defaultHost ?? "osu.ppy.sh";
+    }
+
     /**
      * Send an HTTP(s) request
      * @param data - Data to send for request
@@ -88,7 +94,7 @@ export class RequestHandler { //TODO: Other request types
 
         const url: UrlWithStringQuery = parse(format({
             protocol: "https",
-            hostname: data.host ?? baseURL,
+            hostname: data.host ?? this.defaultHost,
             pathname: endpoint,
             query: {...data.query}
         }));
