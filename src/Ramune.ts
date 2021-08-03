@@ -1,21 +1,11 @@
 import { Client } from "./Client";
 import { Endpoints } from "./Endpoints";
 import {
-    BeatmapLeaderboardScope,
-    Gamemode,
     GrantType,
-    Mod,
     RequestType,
     TokenType
 } from "./Enums";
 import { RequestHandler } from "./RequestHandler";
-
-import {
-    Beatmap as BeatmapResponse
-} from "./Responses/Beatmap";
-import {
-    Score as ScoreResponse
-} from "./Responses/Score";
 
 export class Ramune extends Client {
     public readonly appID: string;
