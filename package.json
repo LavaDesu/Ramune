@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc",
     "check": "tsc --noEmit",
-    "lint": "eslint -c .eslintrc.cjs --ext .ts src"
+    "lint": "eslint -c .eslintrc.cjs --ext .ts src",
+    "postinstall": "tsc"
   },
   "engines": {
     "node": ">=10.0.0"
@@ -37,7 +38,9 @@
     "@typescript-eslint/parser": "^4.28.1",
     "eslint": "^7.30.0",
     "eslint-plugin-import": "^2.23.4",
-    "ts-node-dev": "^1.1.8",
+    "ts-node-dev": "^1.1.8"
+  },
+  "dependencies": {
     "typescript": "^4.3.5"
   }
 }
