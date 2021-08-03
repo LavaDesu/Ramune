@@ -37,7 +37,7 @@ export class Ramune extends Client {
     }
 
     public async refreshToken() {
-        const token = await new RequestHandler().request<Token>({
+        const token = await this.requestHandler.request<Token>({
             body: {
                 "grant_type": GrantType.ClientCredentials,
                 "client_id": this.appID,
