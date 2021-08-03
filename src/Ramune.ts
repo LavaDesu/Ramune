@@ -18,11 +18,11 @@ import {
 } from "./Responses/Score";
 
 export class Ramune extends Client {
-    private readonly appID: string;
-    private readonly appSecret: string;
+    public readonly appID: string;
+    public readonly appSecret: string;
 
     /**
-     * Main constructor
+     * Main constructor  
      * NOTE! You're probably looking for {@link Ramune.create}
      */
     constructor(id: string, secret: string, token: Token) {
@@ -48,8 +48,22 @@ export class Ramune extends Client {
         return new Ramune(id, secret, token);
     }
 
-    public async createUserClient(token: string, type: "refresh" | "auth"): Promise<UserClient> {
+    public async refreshToken() {
+        const token = await new RequestHandler().request<Token>({
+            body: {
+                "grant_type": GrantType.ClientCredentials,
+                "client_id": this.appID,
+                "client_secret": this.appSecret,
+                "scope": "public"
+            },
+            endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
+            type: RequestType.POST
+        });
+        this.updateToken(token);
+        return token;
+    }
 
+    public async createUserClient(token: string, type: "refresh" | "auth"): Promise<UserClient> {
         const body = {
             client_id: this.appID,
             client_secret: this.appSecret
@@ -74,14 +88,32 @@ export class Ramune extends Client {
             endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
             type: RequestType.POST
         });
-        const instance = new UserClient(tokenObject);
+        const instance = new UserClient(this, tokenObject);
         return instance;
     }
 }
 
 export class UserClient extends Client {
-    constructor(token: Token) {
+    private readonly parent: Ramune;
+
+    constructor(parent: Ramune, token: Token) {
         super(token);
+        this.parent = parent;
+    }
+
+    public async refreshToken() {
+        const token = await new RequestHandler().request<Token>({
+            body: {
+                "grant_type": GrantType.RefreshToken,
+                "client_id": this.parent.appID,
+                "client_secret": this.parent.appSecret,
+                "refresh_token": this.token.refresh_token!
+            },
+            endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
+            type: RequestType.POST
+        });
+        this.updateToken(token);
+        return token;
     }
 }
 

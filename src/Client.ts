@@ -20,14 +20,35 @@ import {
 import { User as UserResponse } from "./Responses/User";
 
 export abstract class Client {
-    public readonly token: Token;
+    public token!: Token;
+    protected refreshTimer!: NodeJS.Timeout;
     protected readonly requestHandler = new RequestHandler();
 
     constructor(token: Token) {
+        this.updateToken(token);
+    }
+
+    /**
+     * Updates the token
+     */
+    protected updateToken(token: Token) {
         // XXX: Hmm
         token.access_token = "Bearer " + token.access_token;
         this.token = token;
+
+        if (this.refreshTimer)
+            clearTimeout(this.refreshTimer);
+        this.refreshTimer = setTimeout(this.refreshToken.bind(this), (token.expires_in - 100) * 1e3);
     }
+
+    /**
+     * Refreshes the token
+     *
+     * There is already an internal timer that refreshes 100 seconds
+     * before {token.expires_in}, so applications do not need to call this
+     * themselves.
+     */
+    public abstract refreshToken(): Promise<Token>;
 
     /**
      * Lookup a beatmap
