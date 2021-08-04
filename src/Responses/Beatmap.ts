@@ -24,7 +24,7 @@ export interface Beatmap extends BeatmapCompact {
     deleted_at: string;
     drain: number;
     hit_length: number;
-    is_scorable: boolean;
+    is_scoreable: boolean;
     last_updated: string;
     max_combo?: number;
     mode_int: number;
