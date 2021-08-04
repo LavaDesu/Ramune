@@ -1,3 +1,4 @@
+import { EventEmitter } from "events";
 import { Token } from "./Responses/Token";
 import { Endpoints } from "./Endpoints";
 import {
@@ -19,12 +20,21 @@ import {
 } from "./Responses/Score";
 import { User as UserResponse } from "./Responses/User";
 
-export abstract class Client {
+// XXX: These add types for events; is there a better way to do it?
+export interface ClientEvents<T> {
+    (event: "tokenUpdate", listener: (token: Token) => void): T;
+}
+export interface Client {
+    on: ClientEvents<this>;
+    once: ClientEvents<this>;
+}
+export abstract class Client extends EventEmitter {
     public token!: Token;
     protected refreshTimer!: NodeJS.Timeout;
     protected readonly requestHandler = new RequestHandler();
 
     constructor(token: Token) {
+        super();
         this.updateToken(token);
     }
 
@@ -39,6 +49,7 @@ export abstract class Client {
         if (this.refreshTimer)
             clearTimeout(this.refreshTimer);
         this.refreshTimer = setTimeout(this.refreshToken.bind(this), (token.expires_in - 100) * 1e3);
+        this.emit("tokenUpdate", token);
     }
 
     /**
