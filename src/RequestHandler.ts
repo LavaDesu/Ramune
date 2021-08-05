@@ -5,8 +5,7 @@ import { URLSearchParams } from "url";
 import { Bucket } from "./Bucket";
 import { RequestType } from "./Enums";
 
-// import { version as VERSION } from "../package.json";
-const VERSION = "0.3.0";
+import { version as VERSION } from "../package.json";
 
 export type RequestHandlerOptions = {
     defaultHost?: string;
@@ -109,7 +108,7 @@ export class RequestHandler { // TODO: Other request types
         const headers: { [name: string]: string } = {
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "User-Agent": data.userAgent ?? `Ohayou/${VERSION} (https://github.com/LavaDesu/ohayou)`
+            "User-Agent": data.userAgent ?? `Ramune/${VERSION as string} (https://github.com/LavaDesu/Ramune)`
         };
 
         if (data.auth)
