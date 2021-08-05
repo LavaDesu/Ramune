@@ -1,6 +1,6 @@
 import { IncomingMessage, RequestOptions } from "http";
 import { request } from "https";
-import { parse, format, UrlWithStringQuery } from "url";
+import { URLSearchParams } from "url";
 
 import { Bucket } from "./Bucket";
 import { RequestType } from "./Enums";
@@ -123,19 +123,16 @@ export class RequestHandler { // TODO: Other request types
             for (const name in data.endpointArguments)
                 endpoint = endpoint.replace(`{${name}}`, data.endpointArguments[name]);
 
-        const url: UrlWithStringQuery = parse(format({
-            protocol: "https",
-            hostname: data.host ?? this.defaultHost,
-            pathname: endpoint,
-            query: { ...data.query }
-        }));
+        let query = new URLSearchParams(data.query).toString();
+        if (query.length)
+            query = "?" + query;
 
         return {
-            headers: {...headers, ...data.headers},
-            hostname: url.hostname,
+            headers: { ...headers, ...data.headers },
+            hostname: data.host ?? this.defaultHost,
             port: 443,
             method: data.type,
-            path: url.path
+            path: endpoint + query
         };
     }
 }
