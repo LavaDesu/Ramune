@@ -15,6 +15,7 @@ export type RequestHandlerOptions = {
         interval: number;
     };
 };
+
 /**
  * Sends and handles requests
  */
@@ -35,10 +36,16 @@ export class RequestHandler { // TODO: Other request types
      * Send an HTTP(s) request
      * @param data - Data to send for request
      * @returns Response for requested data
+     *
+     * @throws {@link RequestNetworkError}
+     * Thrown if the server responds with a 400 or 500 code
+     *
+     * @throws {@link RequestLocalError}
+     * Thrown if there was a local failure somewhere during the request
      */
     public async request<T>(data: RequestObject): Promise<T> {
         let pResolve: (value: T | PromiseLike<T>) => void;
-        let pReject: (reason?: any) => void;
+        let pReject: (reason?: RequestError) => void;
 
         const promise = new Promise<T>((r, d) => {
             pResolve = r;
@@ -55,7 +62,12 @@ export class RequestHandler { // TODO: Other request types
                 res.on("data", d => raw += d);
                 res.on("end", () => {
                     if (res.statusCode && res.statusCode >= 400) {
-                        pReject(`Request to ${serializedData.path ?? "null path???"} returned ${res.statusCode}: ${res.statusMessage ?? "No message"} - ${raw}`);
+                        pReject({
+                            type: "network",
+                            code: res.statusCode!,
+                            message: res.statusMessage,
+                            response: raw
+                        });
                         return;
                     }
 
@@ -65,13 +77,19 @@ export class RequestHandler { // TODO: Other request types
                             pResolve(undefined as unknown as T);
                         else
                             pResolve(JSON.parse(raw) as T);
-                    } catch(e) {
-                        pReject(e);
+                    } catch(err) {
+                        pReject({
+                            type: "local",
+                            error: err
+                        });
                     }
                 });
             })
             .on("error", (err: Error) => {
-                pReject(err);
+                pReject({
+                    type: "local",
+                    error: err
+                });
             });
 
         if (data.type === RequestType.POST)
@@ -109,7 +127,7 @@ export class RequestHandler { // TODO: Other request types
             protocol: "https",
             hostname: data.host ?? this.defaultHost,
             pathname: endpoint,
-            query: {...data.query}
+            query: { ...data.query }
         }));
 
         return {
@@ -121,6 +139,18 @@ export class RequestHandler { // TODO: Other request types
         };
     }
 }
+
+export type RequestLocalError = {
+    type: "local";
+    error: any;
+};
+export type RequestNetworkError = {
+    type: "network";
+    code: number;
+    message?: string;
+    response?: string;
+};
+export type RequestError = RequestLocalError | RequestNetworkError;
 
 /**
  * A base request
