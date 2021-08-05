@@ -8,7 +8,7 @@ import {
     RequestType,
     ScoreType
 } from "./Enums";
-import { RequestHandler } from "./RequestHandler";
+import { RequestHandler, RequestHandlerOptions } from "./RequestHandler";
 
 import {
     Beatmap as BeatmapResponse,
@@ -28,13 +28,17 @@ export interface Client {
     on: ClientEvents<this>;
     once: ClientEvents<this>;
 }
+export type ClientOptions = {
+    requestHandler?: RequestHandlerOptions;
+};
 export abstract class Client extends EventEmitter {
     public token!: Token;
     protected refreshTimer!: NodeJS.Timeout;
-    protected readonly requestHandler = new RequestHandler();
+    protected readonly requestHandler: RequestHandler;
 
-    constructor(token: Token) {
+    constructor(token: Token, options?: ClientOptions) {
         super();
+        this.requestHandler = new RequestHandler(options?.requestHandler);
         this.updateToken(token);
     }
 

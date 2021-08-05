@@ -1,4 +1,4 @@
-import { Client } from "./Client";
+import { Client, ClientOptions } from "./Client";
 import { Endpoints } from "./Endpoints";
 import { GrantType, RequestType } from "./Enums";
 import { Ramune } from "./Ramune";
@@ -7,8 +7,8 @@ import { Token } from "./Responses/Token";
 export class UserClient extends Client {
     private readonly parent: Ramune;
 
-    constructor(parent: Ramune, token: Token) {
-        super(token);
+    constructor(parent: Ramune, token: Token, options?: ClientOptions) {
+        super(token, options);
         this.parent = parent;
     }
 

@@ -1,4 +1,4 @@
-import { Client } from "./Client";
+import { Client, ClientOptions } from "./Client";
 import { Endpoints } from "./Endpoints";
 import { Token } from "./Responses/Token";
 import { GrantType, RequestType } from "./Enums";
@@ -13,8 +13,8 @@ export class Ramune extends Client {
      * Main constructor  
      * NOTE! You're probably looking for {@link Ramune.create}
      */
-    constructor(id: string, secret: string, token: Token) {
-        super(token);
+    constructor(id: string, secret: string, token: Token, options?: ClientOptions) {
+        super(token, options);
         this.appID = id.toString();
         this.appSecret = secret;
     }
@@ -22,7 +22,7 @@ export class Ramune extends Client {
     /**
      * Create {Ramune} from an OAuth app's id and secret
      */
-    public static async create(id: string, secret: string) {
+    public static async create(id: string, secret: string, options?: ClientOptions) {
         const token = await new RequestHandler().request<Token>({
             body: {
                 "grant_type": GrantType.ClientCredentials,
@@ -33,7 +33,7 @@ export class Ramune extends Client {
             endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
             type: RequestType.POST
         });
-        return new Ramune(id, secret, token);
+        return new Ramune(id, secret, token, options);
     }
 
     public async refreshToken() {
@@ -51,7 +51,7 @@ export class Ramune extends Client {
         return token;
     }
 
-    public async createUserClient(token: string, type: "refresh" | "auth"): Promise<UserClient> {
+    public async createUserClient(token: string, type: "refresh" | "auth", options?: ClientOptions): Promise<UserClient> {
         const body = {
             client_id: this.appID,
             client_secret: this.appSecret
@@ -76,7 +76,7 @@ export class Ramune extends Client {
             endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
             type: RequestType.POST
         });
-        const instance = new UserClient(this, tokenObject);
+        const instance = new UserClient(this, tokenObject, options);
         return instance;
     }
 }

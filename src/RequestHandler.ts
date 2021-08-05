@@ -8,6 +8,13 @@ import { RequestType } from "./Enums";
 // import { version as VERSION } from "../package.json";
 const VERSION = "0.3.0";
 
+export type RequestHandlerOptions = {
+    defaultHost?: string;
+    rateLimit?: {
+        limit: number;
+        interval: number;
+    };
+};
 /**
  * Sends and handles requests
  */
@@ -15,13 +22,7 @@ export class RequestHandler { // TODO: Other request types
     private readonly defaultHost: string;
     private readonly bucket: Bucket;
 
-    constructor(options?: {
-        defaultHost?: string;
-        rateLimit?: {
-            limit: number;
-            interval: number;
-        };
-    }) {
+    constructor(options?: RequestHandlerOptions) {
         this.defaultHost = options?.defaultHost ?? "osu.ppy.sh";
 
         const limit = options?.rateLimit?.limit ?? 50;
