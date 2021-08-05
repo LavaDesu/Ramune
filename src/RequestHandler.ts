@@ -24,8 +24,8 @@ export class RequestHandler { // TODO: Other request types
     }) {
         this.defaultHost = options?.defaultHost ?? "osu.ppy.sh";
 
-        const limit = options?.rateLimit?.limit ?? 200;
-        const interval = options?.rateLimit?.interval ?? 60e3;
+        const limit = options?.rateLimit?.limit ?? 50;
+        const interval = options?.rateLimit?.interval ?? 10e3;
 
         this.bucket = new Bucket(limit, interval);
     }
