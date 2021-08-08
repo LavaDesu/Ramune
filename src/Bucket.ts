@@ -21,7 +21,7 @@ export class Bucket {
     public async queue() {
         this.count++;
         if (!this.releaseTimer)
-            this.releaseTimer = setTimeout(() => this.release(), this.interval);
+            this.releaseTimer = setTimeout(() => this.release(), this.interval).unref();
 
         const lock = new Lock();
 
@@ -45,7 +45,7 @@ export class Bucket {
             clearTimeout(this.releaseTimer);
 
         if (this.waitQueue.length > 0 || this.count > 0)
-            this.releaseTimer = setTimeout(() => this.release(), this.interval);
+            this.releaseTimer = setTimeout(() => this.release(), this.interval).unref();
 
         if (this.waitQueue.length === 0) {
             this.releaseTimer = undefined;

@@ -52,7 +52,7 @@ export abstract class Client extends EventEmitter {
 
         if (this.refreshTimer)
             clearTimeout(this.refreshTimer);
-        this.refreshTimer = setTimeout(this.refreshToken.bind(this), (token.expires_in - 100) * 1e3);
+        this.refreshTimer = setTimeout(this.refreshToken.bind(this), (token.expires_in - 100) * 1e3).unref();
         this.emit("tokenUpdate", token);
     }
 
