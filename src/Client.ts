@@ -19,6 +19,7 @@ import {
     Score as ScoreResponse
 } from "./Responses/Score";
 import { User as UserResponse } from "./Responses/User";
+import { MissingTokenError } from "./Errors";
 
 // XXX: These add types for events; is there a better way to do it?
 export interface ClientEvents<T> {
@@ -31,15 +32,16 @@ export interface Client {
 export type ClientOptions = {
     requestHandler?: RequestHandlerOptions;
 };
+
 export abstract class Client extends EventEmitter {
-    public token!: Token;
+    public token?: Token;
+    protected missingTokenMessage?: string;
     protected refreshTimer!: NodeJS.Timeout;
     protected readonly requestHandler: RequestHandler;
 
-    constructor(token: Token, options?: ClientOptions) {
+    constructor(options?: ClientOptions) {
         super();
         this.requestHandler = new RequestHandler(options?.requestHandler);
-        this.updateToken(token);
     }
 
     /**
@@ -77,6 +79,9 @@ export abstract class Client extends EventEmitter {
             filename?: string;
         }
     ): Promise<BeatmapResponse> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
         const response = await this.requestHandler.request<BeatmapResponse>({
             auth: this.token.access_token,
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_LOOKUP,
@@ -94,6 +99,9 @@ export abstract class Client extends EventEmitter {
             mods?: Mod[];
         }
     ): Promise<BeatmapScoresResponse> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
         const query: Record<string, string> = {
             type: options.type ?? BeatmapLeaderboardScope.Global
         };
@@ -118,6 +126,9 @@ export abstract class Client extends EventEmitter {
             mods?: Mod[];
         }
     ): Promise<BeatmapUserScoreResponse> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
         const query: Record<string, string> = {
             type: options.type ?? BeatmapLeaderboardScope.Global
         };
@@ -135,6 +146,9 @@ export abstract class Client extends EventEmitter {
 
 
     public async getUser(id: string, mode?: Gamemode): Promise<UserResponse> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
         const response = await this.requestHandler.request<UserResponse>({
             auth: this.token.access_token,
             endpoint: Endpoints.API_PREFIX + Endpoints.USER_SINGLE,
@@ -145,6 +159,9 @@ export abstract class Client extends EventEmitter {
     }
 
     public async getUserScores(id: string, type: ScoreType, mode?: Gamemode): Promise<ScoreResponse[]> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
         const response = await this.requestHandler.request<ScoreResponse[]>({
             auth: this.token.access_token,
             endpoint: Endpoints.API_PREFIX + Endpoints.USER_SCORES,

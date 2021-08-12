@@ -2,40 +2,36 @@ import { Client, ClientOptions } from "./Client";
 import { Endpoints } from "./Endpoints";
 import { Token } from "./Responses/Token";
 import { GrantType, RequestType } from "./Enums";
-import { RequestHandler } from "./RequestHandler";
 import { UserClient } from "./UserClient";
 
 export class Ramune extends Client {
     public readonly appID: string;
     public readonly appSecret: string;
 
+    protected readonly missingTokenMessage = "Have you run connect()?";
+
     /**
-     * Main constructor  
-     * NOTE! You're probably looking for {@link Ramune.create}
+     * Represents an OAuth app
+     *
+     * After creating an instance, you may do any of the following to start using the API:
+     * - Make unauthenticated requests
+     * - Make authenticated requests after calling and waiting for {@link refreshToken}
+     * - Create {@link UserClient}s with {@link createUserClient} which allows you to
+     *   make requests on behalf of a user
+     *
+     * @param id - The OAuth app ID
+     * @param secret - The OAuth app secret
+     * @param options - Extra client options
      */
-    constructor(id: string, secret: string, token: Token, options?: ClientOptions) {
-        super(token, options);
-        this.appID = id.toString();
+    constructor(id: string, secret: string, options?: ClientOptions) {
+        super(options);
+        this.appID = id;
         this.appSecret = secret;
     }
 
     /**
-     * Create {Ramune} from an OAuth app's id and secret
+     * Refreshes the client credentials OAuth token
      */
-    public static async create(id: string, secret: string, options?: ClientOptions) {
-        const token = await new RequestHandler().request<Token>({
-            body: {
-                "grant_type": GrantType.ClientCredentials,
-                "client_id": id,
-                "client_secret": secret,
-                "scope": "public"
-            },
-            endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
-            type: RequestType.POST
-        });
-        return new Ramune(id, secret, token, options);
-    }
-
     public async refreshToken() {
         const token = await this.requestHandler.request<Token>({
             body: {

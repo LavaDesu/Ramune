@@ -1,18 +1,26 @@
 import { Client, ClientOptions } from "./Client";
 import { Endpoints } from "./Endpoints";
 import { GrantType, RequestType } from "./Enums";
+import { MissingTokenError } from "./Errors";
 import { Ramune } from "./Ramune";
 import { Token } from "./Responses/Token";
 
 export class UserClient extends Client {
-    private readonly parent: Ramune;
+    public readonly parent: Ramune;
 
     constructor(parent: Ramune, token: Token, options?: ClientOptions) {
-        super(token, options);
+        super(options);
         this.parent = parent;
+        if (!token)
+            throw new MissingTokenError("Is this UserClient not constructed from Ramune.createUserClient()?");
+        else
+            this.updateToken(token);
     }
 
     public async refreshToken() {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
         const token = await this.requestHandler.request<Token>({
             body: {
                 "grant_type": GrantType.RefreshToken,
