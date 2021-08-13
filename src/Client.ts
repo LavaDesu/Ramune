@@ -22,34 +22,63 @@ import {
 import { User as UserResponse } from "./Responses/User";
 import { MissingTokenError } from "./Errors";
 
-// XXX: These add types for events; is there a better way to do it?
-export interface ClientEvents<T> {
-    (event: "tokenUpdate", listener: (token: Token) => void): T;
-}
+declare function tokenUpdate(token: Token): void;
+
+type ClientEvents<T> = {
+    (event: "tokenUpdate", listener: typeof tokenUpdate): T;
+};
 export interface Client {
+    /** @hidden */
+    addListener: ClientEvents<this>;
+    /** @hidden */
     on: ClientEvents<this>;
+    /** @hidden */
     once: ClientEvents<this>;
 }
-export type ClientOptions = {
-    requestHandler?: RequestHandlerOptions;
-};
 
+/**
+ * An OAuth Client, storing a token and request handler that can be used to
+ * query the osu! API
+ */
 export abstract class Client extends EventEmitter {
+    // For other people wondering why events are put here, it is for typedoc
+    // as there are currently no better way (afaik) to actually document events
+    /**
+     * Emitted when a token is refreshed or updated in some way
+     *
+     * This is also emitted the first time a token is set
+     *
+     * @internal
+     * @event
+     */
+    static readonly tokenUpdate: typeof tokenUpdate;
+
+    /** The current token used for authenticated requests */
     public token?: Token;
     protected missingTokenMessage?: string;
     protected refreshTimer!: NodeJS.Timeout;
     protected readonly requestHandler: RequestHandler;
 
+    /**
+     * Constructs a client
+     *
+     * @remark Please do not construct this class directly!
+     * Use either {@link Ramune.constructor | Ramune} or {@link Ramune.createUserClient} instead
+     */
     constructor(options?: ClientOptions) {
         super();
         this.requestHandler = new RequestHandler(options?.requestHandler);
     }
 
     /**
-     * Updates the token
+     * Updates the current token.
+     *
+     * This method emits the {@link tokenUpdate} event
+     *
+     * @internal
      */
     protected updateToken(token: Token) {
-        // XXX: Hmm
+        // XXX: Should this be prepended every request instead?
         token.access_token = "Bearer " + token.access_token;
         this.token = token;
 
@@ -63,8 +92,10 @@ export abstract class Client extends EventEmitter {
      * Refreshes the token
      *
      * There is already an internal timer that refreshes 100 seconds
-     * before {token.expires_in}, so applications do not need to call this
+     * before {@link Token.expires_in}, so applications do not need to call this
      * themselves.
+     *
+     * @returns The newly refreshed token
      */
     public abstract refreshToken(): Promise<Token>;
 
@@ -96,13 +127,17 @@ export abstract class Client extends EventEmitter {
         return response;
     }
 
+    /**
+     * Gets the score leaderboard for a beatmap
+     *
+     * @param id The beatmap ID
+     * @param options Possible options for requesting the leaderboard
+     *
+     * @returns The beatmap leaderboards
+     */
     public async getBeatmapScores(
         id: string,
-        options: {
-            type?: BeatmapLeaderboardScope;
-            mode?: Gamemode;
-            mods?: Mod[];
-        }
+        options: BeatmapScoreOptions
     ): Promise<BeatmapScoresResponse> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
@@ -122,14 +157,19 @@ export abstract class Client extends EventEmitter {
         return response;
     }
 
+    /**
+     * Gets the user's high score on a beatmap
+     *
+     * @param beatmapID The beatmap ID
+     * @param userID The user ID
+     * @param options Possible options for requesting the leaderboard
+     *
+     * @returns The user's high score
+     */
     public async getBeatmapUserScore(
         beatmapID: string,
         userID: string,
-        options: {
-            type?: BeatmapLeaderboardScope;
-            mode?: Gamemode;
-            mods?: Mod[];
-        }
+        options: BeatmapScoreOptions
     ): Promise<BeatmapUserScoreResponse> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
@@ -150,6 +190,15 @@ export abstract class Client extends EventEmitter {
     }
 
 
+    /**
+     * Gets information about a particular user
+     *
+     * @param id The user ID
+     * @param mode Returns specific details about the user in this gamemode, defaults
+     *             to the user's default gamemode
+     *
+     * @return The user
+     */
     public async getUser(id: string, mode?: Gamemode): Promise<UserResponse> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
@@ -163,6 +212,16 @@ export abstract class Client extends EventEmitter {
         return response;
     }
 
+
+    /**
+     * Gets scores from a user
+     *
+     * @param id The user ID
+     * @param type The score request type
+     * @param mode Specific gamemode to request for
+     *
+     * @returns An array of scores
+     */
     public async getUserScores(id: string, type: ScoreType, mode?: Gamemode): Promise<ScoreResponse[]> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
@@ -177,3 +236,25 @@ export abstract class Client extends EventEmitter {
         return response;
     }
 }
+
+/**
+ * Possible options to configure the client
+ */
+export type ClientOptions = {
+    /**
+     * Options for {@link RequestHandler}
+     */
+    requestHandler?: RequestHandlerOptions;
+};
+
+/**
+ * Possible options for getting beatmap score leaderboards
+ */
+export type BeatmapScoreOptions = {
+    /** Leaderboard type */
+    type?: BeatmapLeaderboardScope;
+    /** Specific gamemode to get */
+    mode?: Gamemode;
+    /** Mods to filter (exact combination) */
+    mods?: Mod[];
+};

@@ -4,6 +4,12 @@ import { Token } from "./Responses/Token";
 import { GrantType, RequestType } from "./Enums";
 import { UserClient } from "./UserClient";
 
+/**
+ * Represents an OAuth app, and should be the first thing to create in order
+ * to use the library.
+ *
+ * To use the app with client credentials, call and wait for {@link refreshToken}
+ */
 export class Ramune extends Client {
     public readonly appID: string;
     public readonly appSecret: string;
@@ -11,12 +17,12 @@ export class Ramune extends Client {
     protected readonly missingTokenMessage = "Have you run connect()?";
 
     /**
-     * Represents an OAuth app
+     * Constructs an OAuth app
      *
      * After creating an instance, you may do any of the following to start using the API:
      * - Make unauthenticated requests
      * - Make authenticated requests after calling and waiting for {@link refreshToken}
-     * - Create {@link UserClient}s with {@link createUserClient} which allows you to
+     * - Create {@link UserClient | UserClients} with {@link createUserClient} which allows you to
      *   make requests on behalf of a user
      *
      * @param id - The OAuth app ID
@@ -29,9 +35,6 @@ export class Ramune extends Client {
         this.appSecret = secret;
     }
 
-    /**
-     * Refreshes the client credentials OAuth token
-     */
     public async refreshToken() {
         const token = await this.requestHandler.request<Token>({
             body: {
@@ -47,6 +50,17 @@ export class Ramune extends Client {
         return token;
     }
 
+    /**
+     * Creates a {@link UserClient} authenticated with this OAuth app
+     *
+     * @param token The initial token, which can either be a refresh token
+     *              or an authentication code
+     * @param type The type of the token
+     * @param options Extra options to pass to the created UserClient
+     *
+     * @returns A {@link UserClient} to make authenticated requests on
+     *          behalf of another user
+     */
     public async createUserClient(token: string, type: "refresh" | "auth", options?: ClientOptions): Promise<UserClient> {
         const body = {
             client_id: this.appID,
