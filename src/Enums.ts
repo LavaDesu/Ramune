@@ -11,6 +11,16 @@ export const BeatmapLeaderboardScope = {
     Friend: "friend"
 } as const;
 
+/** Beatmap lookup type */
+export const BeatmapLookupType = {
+    /** Lookup a beatmap given its checksum */
+    Checksum: "checksum",
+    /** Lookup a beatmap given its ID */
+    ID: "id",
+    /** Lookup a beatmap given its filename */
+    Filename: "filename"
+} as const;
+
 export const BeatmapsetOnlineStatus = {
     Approved: "approved",
     Graveyard: "graveyard",
@@ -166,9 +176,13 @@ export const ScoreRank = {
     XH: "XH"
 } as const;
 
+/** User score request types */
 export const ScoreType = {
+    /** The user's best scores */
     Best: "best",
+    /** The user's top #1 scores */
     Firsts: "firsts",
+    /** The user's recent (24h) scores */
     Recent: "recent"
 } as const;
 
@@ -179,6 +193,7 @@ export const TokenType = {
 
 export type BeatmapApproval         = (typeof BeatmapApproval)         [keyof typeof BeatmapApproval];
 export type BeatmapLeaderboardScope = (typeof BeatmapLeaderboardScope) [keyof typeof BeatmapLeaderboardScope];
+export type BeatmapLookupType       = (typeof BeatmapLookupType)       [keyof typeof BeatmapLookupType];
 export type BeatmapsetOnlineStatus  = (typeof BeatmapsetOnlineStatus)  [keyof typeof BeatmapsetOnlineStatus];
 export type BeatmapsetType          = (typeof BeatmapsetType)          [keyof typeof BeatmapsetType];
 export type Gamemode                = (typeof Gamemode)                [keyof typeof Gamemode];

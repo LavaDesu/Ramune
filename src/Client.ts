@@ -3,6 +3,7 @@ import { Token } from "./Responses/Token";
 import { Endpoints } from "./Endpoints";
 import {
     BeatmapLeaderboardScope,
+    BeatmapLookupType,
     Gamemode,
     Mod,
     RequestType,
@@ -68,17 +69,21 @@ export abstract class Client extends EventEmitter {
     public abstract refreshToken(): Promise<Token>;
 
     /**
-     * Lookup a beatmap
-     *
-     * @param query Lookup query
+     * Lookup a beatmap using its ID
+     * @param id Beatmap ID
      */
-    public async lookupBeatmap(
-        options: {
-            checksum?: string;
-            id?: string;
-            filename?: string;
-        }
-    ): Promise<BeatmapResponse> {
+    public async lookupBeatmap(id: number, type: "id"): Promise<BeatmapResponse>
+    /**
+     * Lookup a beatmap using its checksum
+     * @param checksum Beatmap checksum
+     */
+    public async lookupBeatmap(checksum: string, type: "checksum"): Promise<BeatmapResponse>
+    /**
+     * Lookup a beatmap using its filename
+     * @param filename Beatmap filename
+     */
+    public async lookupBeatmap(filename: string, type: "filename"): Promise<BeatmapResponse>
+    public async lookupBeatmap(query: number | string, type: BeatmapLookupType): Promise<BeatmapResponse> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
 
@@ -86,7 +91,7 @@ export abstract class Client extends EventEmitter {
             auth: this.token.access_token,
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_LOOKUP,
             type: RequestType.GET,
-            query: options
+            query: { [type]: query.toString() }
         });
         return response;
     }
