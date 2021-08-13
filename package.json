@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc",
     "check": "tsc --noEmit",
+    "docs": "tsnd --transpile-only -- scripts/docs.ts",
     "lint": "eslint -c .eslintrc.cjs --ext .ts src",
     "postinstall": "tsc"
   },
@@ -37,7 +38,8 @@
     "@typescript-eslint/parser": "^4.28.1",
     "eslint": "^7.30.0",
     "eslint-plugin-import": "^2.23.4",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^1.1.8",
+    "typedoc": "^0.21.5"
   },
   "dependencies": {
     "@types/node": "^14.7.3",
