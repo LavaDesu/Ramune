@@ -13,6 +13,7 @@
         "rootDir": "./src",
         "sourceMap": true,
         "strict": true,
+        "stripInternal": true,
         "tsBuildInfoFile": "./lib/ramune.tsbuildinfo"
     }
 }
