@@ -20,8 +20,7 @@ async function main() {
         out: "./docs",
         disableSources: true,
         readme: "./README.md",
-        tsconfig: "./tsconfig.all.json",
-        toc: ["Client", "UserClient", "Ramune"]
+        tsconfig: "./tsconfig.all.json"
     });
 
     const project = app.convert();
