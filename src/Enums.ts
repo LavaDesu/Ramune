@@ -128,6 +128,17 @@ export const Playstyle = {
     Touchscreen: "touch"
 } as const;
 
+/** Profile sections/pages/cards */
+export const ProfileSection = {
+    Me: "me",
+    RecentActivity: "recent_activity",
+    Beatmaps: "beatmaps",
+    Historical: "historical",
+    Kudosu: "kudosu",
+    TopRanks: "top_ranks",
+    Medals: "medals"
+} as const;
+
 /** Available ranking types */
 export const RankingType = {
     Charts: "charts",
@@ -151,6 +162,13 @@ export const RecentActivityType = {
     UserSupportFirst: "userSupportFirst",
     UserSupportGift: "userSupportGift",
     UsernameChange: "usernameChange"
+} as const;
+
+/** Infringement types */
+export const InfringementType = {
+    Note: "note",
+    Restriction: "restriction",
+    Silence: "silence"
 } as const;
 
 /** REST request types */
@@ -200,8 +218,10 @@ export type Gamemode                = (typeof Gamemode)                [keyof ty
 export type GrantType               = (typeof GrantType)               [keyof typeof GrantType];
 export type KudosuAction            = (typeof KudosuAction)            [keyof typeof KudosuAction];
 export type KudosuSource            = (typeof KudosuSource)            [keyof typeof KudosuSource];
+export type InfringementType        = (typeof InfringementType)        [keyof typeof InfringementType];
 export type Mod                     = (typeof Mod)                     [keyof typeof Mod];
 export type Playstyle               = (typeof Playstyle)               [keyof typeof Playstyle];
+export type ProfileSection          = (typeof ProfileSection)          [keyof typeof ProfileSection];
 export type RankingType             = (typeof RankingType)             [keyof typeof RankingType];
 export type RecentActivityType      = (typeof RecentActivityType)      [keyof typeof RecentActivityType];
 export type RequestType             = (typeof RequestType)             [keyof typeof RequestType];

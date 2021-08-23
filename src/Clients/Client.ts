@@ -14,13 +14,12 @@ import { RequestHandler, RequestHandlerOptions } from "../RequestHandler";
 import {
     Beatmap as BeatmapResponse,
     BeatmapScores as BeatmapScoresResponse,
-    BeatmapUserScore as BeatmapUserScoreResponse
-} from "../Responses/Beatmap";
-import {
-    Score as ScoreResponse
-} from "../Responses/Score";
-import { User as UserResponse } from "../Responses/User";
+    BeatmapUserScore as BeatmapUserScoreResponse,
+    Score as ScoreResponse,
+    User$getUser as UserResponse
+} from "../Responses";
 import { MissingTokenError } from "../Errors";
+import { User } from "../Structures/User";
 
 declare function tokenUpdate(token: Token): void;
 
@@ -197,21 +196,28 @@ export abstract class Client extends EventEmitter {
      * @param mode Returns specific details about the user in this gamemode, defaults
      *             to the user's default gamemode
      *
-     * @return The user
+     * @return A populated user
      */
-    public async getUser(id: string, mode?: Gamemode): Promise<UserResponse> {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
-        const response = await this.requestHandler.request<UserResponse>({
-            auth: this.token.access_token,
-            endpoint: Endpoints.API_PREFIX + Endpoints.USER_SINGLE,
-            endpointArguments: { user: id, mode: mode ?? "" },
-            type: RequestType.GET
-        });
-        return response;
+    public async getUser(id: string, mode?: Gamemode): Promise<User> {
+        const response = await this.getUserRaw(id, "id", mode);
+        return new User(this, response);
     }
 
+    /**
+     * Gets information about a particular user
+     *
+     * Same as {@link getUser} but searches using their username instead
+     *
+     * @param username The user's username
+     * @param mode Returns specific details about the user in this gamemode, defaults
+     *             to the user's default gamemode
+     *
+     * @return A populated user
+     */
+    public async getUserByName(username: string, mode?: Gamemode): Promise<User> {
+        const response = await this.getUserRaw(username, "username", mode);
+        return new User(this, response);
+    }
 
     /**
      * Gets scores from a user
@@ -233,6 +239,29 @@ export abstract class Client extends EventEmitter {
             query: mode ? { mode } : {},
             type: RequestType.GET
         });
+        return response;
+    }
+
+    /**
+     * This is split off from {@link getUser} because 3 methods need it:
+     * - {@link getUser}
+     * - {@link getUserByName}
+     * - {@link User.populate}
+     *
+     * @internal
+     */
+    public async getUserRaw(query: string, key: "id" | "username", mode?: Gamemode) {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
+        const response = await this.requestHandler.request<UserResponse>({
+            auth: this.token.access_token,
+            endpoint: Endpoints.API_PREFIX + Endpoints.USER_SINGLE,
+            endpointArguments: { user: query, mode: mode ?? "" },
+            query: { key },
+            type: RequestType.GET
+        });
+
         return response;
     }
 }

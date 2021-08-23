@@ -6,4 +6,4 @@ export * from "./Bucket";
 export * from "./Endpoints";
 export * from "./Enums";
 export * from "./RequestHandler";
-export * from "./Responses";
+export * from "./Structures/User";
