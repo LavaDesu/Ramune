@@ -99,21 +99,30 @@ export abstract class Client extends EventEmitter {
     public abstract refreshToken(): Promise<Token>;
 
     /**
-     * Lookup a beatmap using its ID
+     * Get a beatmap using its ID
      * @param id Beatmap ID
      */
-    public async lookupBeatmap(id: number | string, type: "id"): Promise<BeatmapResponse>
+    public async getBeatmap(id: number | string): Promise<BeatmapResponse> {
+        return await this.lookupBeatmap(id, BeatmapLookupType.ID);
+    }
+
     /**
-     * Lookup a beatmap using its checksum
+     * Get a beatmap using its checksum
      * @param checksum Beatmap checksum
      */
-    public async lookupBeatmap(checksum: string, type: "checksum"): Promise<BeatmapResponse>
+    public async getBeatmapByChecksum(checksum: string): Promise<BeatmapResponse> {
+        return await this.lookupBeatmap(checksum, BeatmapLookupType.Checksum);
+    }
+
     /**
-     * Lookup a beatmap using its filename
+     * Get a beatmap using its filename
      * @param filename Beatmap filename
      */
-    public async lookupBeatmap(filename: string, type: "filename"): Promise<BeatmapResponse>
-    public async lookupBeatmap(query: number | string, type: BeatmapLookupType): Promise<BeatmapResponse> {
+    public async getBeatmapByFilename(filename: string): Promise<BeatmapResponse> {
+        return await this.lookupBeatmap(filename, BeatmapLookupType.Filename);
+    }
+
+    private async lookupBeatmap(query: number | string, type: BeatmapLookupType): Promise<BeatmapResponse> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
 
