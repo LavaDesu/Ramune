@@ -102,7 +102,7 @@ export abstract class Client extends EventEmitter {
      * Lookup a beatmap using its ID
      * @param id Beatmap ID
      */
-    public async lookupBeatmap(id: number, type: "id"): Promise<BeatmapResponse>
+    public async lookupBeatmap(id: number | string, type: "id"): Promise<BeatmapResponse>
     /**
      * Lookup a beatmap using its checksum
      * @param checksum Beatmap checksum
@@ -135,7 +135,7 @@ export abstract class Client extends EventEmitter {
      * @returns The beatmap leaderboards
      */
     public async getBeatmapScores(
-        id: string,
+        id: number | string,
         options: BeatmapScoreOptions
     ): Promise<BeatmapScoresResponse> {
         if (!this.token)
@@ -149,7 +149,7 @@ export abstract class Client extends EventEmitter {
         const response = await this.requestHandler.request<BeatmapScoresResponse>({
             auth: this.token.access_token,
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_SCORES,
-            endpointArguments: { beatmap: id },
+            endpointArguments: { beatmap: id.toString() },
             type: RequestType.GET,
             query
         });
@@ -166,8 +166,8 @@ export abstract class Client extends EventEmitter {
      * @returns The user's high score
      */
     public async getBeatmapUserScore(
-        beatmapID: string,
-        userID: string,
+        beatmapID: number | string,
+        userID: number | string,
         options: BeatmapScoreOptions
     ): Promise<BeatmapUserScoreResponse> {
         if (!this.token)
@@ -181,7 +181,7 @@ export abstract class Client extends EventEmitter {
         const response = await this.requestHandler.request<BeatmapUserScoreResponse>({
             auth: this.token.access_token,
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_USER_SCORE,
-            endpointArguments: { beatmap: beatmapID, user: userID },
+            endpointArguments: { beatmap: beatmapID.toString(), user: userID.toString() },
             type: RequestType.GET,
             query
         });
@@ -198,8 +198,8 @@ export abstract class Client extends EventEmitter {
      *
      * @return A populated user
      */
-    public async getUser(id: string, mode?: Gamemode): Promise<User> {
-        const response = await this.getUserRaw(id, "id", mode);
+    public async getUser(id: number | string, mode?: Gamemode): Promise<User> {
+        const response = await this.getUserRaw(id.toString(), "id", mode);
         return new User(this, response);
     }
 
@@ -228,14 +228,14 @@ export abstract class Client extends EventEmitter {
      *
      * @returns An array of scores
      */
-    public async getUserScores(id: string, type: ScoreType, mode?: Gamemode): Promise<ScoreResponse[]> {
+    public async getUserScores(id: number | string, type: ScoreType, mode?: Gamemode): Promise<ScoreResponse[]> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
 
         const response = await this.requestHandler.request<ScoreResponse[]>({
             auth: this.token.access_token,
             endpoint: Endpoints.API_PREFIX + Endpoints.USER_SCORES,
-            endpointArguments: { user: id, type },
+            endpointArguments: { user: id.toString(), type },
             query: mode ? { mode } : {},
             type: RequestType.GET
         });
