@@ -1,14 +1,22 @@
-import { Gamemode } from "../Enums";
+import { BeatmapsetOnlineStatus, Gamemode } from "../Enums";
 import { Score } from "./Score";
+import { UserCompact } from "./User";
 
 export interface BeatmapCompact {
-    beatmapset?: Beatmapset | BeatmapsetCompact;
     difficulty_rating: number;
     id: number;
     mode: Gamemode;
-    status: string;
+    status: BeatmapsetOnlineStatus;
     total_length: number;
     version: string;
+
+    beatmapset?: Beatmapset | BeatmapsetCompact;
+    checksum?: string;
+    failtimes?: {
+        exit?: number[];
+        fail?: number[];
+    };
+    max_combo?: number;
 }
 
 export interface Beatmap extends BeatmapCompact {
@@ -21,12 +29,11 @@ export interface Beatmap extends BeatmapCompact {
     count_sliders: number;
     count_spinners: number;
     cs: number;
-    deleted_at: string;
+    deleted_at: string | null;
     drain: number;
     hit_length: number;
     is_scoreable: boolean;
     last_updated: string;
-    max_combo?: number;
     mode_int: number;
     passcount: number;
     playcount: number;
@@ -44,13 +51,74 @@ export interface BeatmapUserScore {
     score: Score;
 }
 
-export interface Beatmapset extends BeatmapsetCompact {
-}
-
 export interface BeatmapsetCompact {
-    id: number;
     artist: string;
     artist_unicode: string;
+    covers: {
+        cover: string;
+        "cover@2x": string;
+        card: string;
+        "card@2x": string;
+        list: string;
+        "list@2x": string;
+        slimcover: string;
+        "slimcover@2x": string;
+    };
+    creator: string;
+    favourite_count: number;
+    id: number;
+    nsfw: boolean;
+    play_count: number;
+    preview_url: string;
+    source: string;
+    status: string;
     title: string;
     title_unicode: string;
+    user_id: number;
+    // official docs say this is a string, but it isn't
+    video: boolean;
+}
+
+export interface Beatmapset extends BeatmapsetCompact {
+    availability: {
+        download_disabled: boolean;
+        more_information: string | null;
+    };
+    bpm: number;
+    can_be_hyped: boolean;
+    creator: string;
+    discussion_enabled: boolean;
+    discussion_locked: boolean;
+    hype: {
+        current: number;
+        required: number;
+    };
+    is_scoreable: boolean;
+    last_updated: string;
+    legacy_thread_url: string | null;
+    nominations: {
+        current: number;
+        required: number;
+    };
+    ranked: number;
+    ranked_date: string;
+    source: string;
+    storyboard: boolean;
+    submitted_date: string;
+    tags: string;
+
+    beatmaps?: Beatmap[];
+    converts?: Beatmap[];
+    // ???
+    description?: { description: string };
+    genre?: NamedID;
+    language?: NamedID;
+    ratings?: number[];
+    recent_favourites?: UserCompact[];
+    user?: UserCompact;
+}
+
+export interface NamedID {
+    id: number;
+    name: string;
 }

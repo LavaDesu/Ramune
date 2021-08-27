@@ -15,10 +15,12 @@ import {
     Beatmap as BeatmapResponse,
     BeatmapScores as BeatmapScoresResponse,
     BeatmapUserScore as BeatmapUserScoreResponse,
+    Beatmapset as BeatmapsetResponse,
     Score as ScoreResponse,
     User$getUser as UserResponse
 } from "../Responses";
 import { MissingTokenError } from "../Errors";
+import { Beatmap, Beatmapset } from "../Structures/Beatmap";
 import { User } from "../Structures/User";
 
 declare function tokenUpdate(token: Token): void;
@@ -102,37 +104,27 @@ export abstract class Client extends EventEmitter {
      * Get a beatmap using its ID
      * @param id Beatmap ID
      */
-    public async getBeatmap(id: number | string): Promise<BeatmapResponse> {
-        return await this.lookupBeatmap(id, BeatmapLookupType.ID);
+    public async getBeatmap(id: number | string): Promise<Beatmap> {
+        const raw = await this.getBeatmapRaw(id, BeatmapLookupType.ID);
+        return new Beatmap(this, raw);
     }
 
     /**
      * Get a beatmap using its checksum
      * @param checksum Beatmap checksum
      */
-    public async getBeatmapByChecksum(checksum: string): Promise<BeatmapResponse> {
-        return await this.lookupBeatmap(checksum, BeatmapLookupType.Checksum);
+    public async getBeatmapByChecksum(checksum: string): Promise<Beatmap> {
+        const raw = await this.getBeatmapRaw(checksum, BeatmapLookupType.Checksum);
+        return new Beatmap(this, raw);
     }
 
     /**
      * Get a beatmap using its filename
      * @param filename Beatmap filename
      */
-    public async getBeatmapByFilename(filename: string): Promise<BeatmapResponse> {
-        return await this.lookupBeatmap(filename, BeatmapLookupType.Filename);
-    }
-
-    private async lookupBeatmap(query: number | string, type: BeatmapLookupType): Promise<BeatmapResponse> {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
-        const response = await this.requestHandler.request<BeatmapResponse>({
-            auth: this.token.access_token,
-            endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_LOOKUP,
-            type: RequestType.GET,
-            query: { [type]: query.toString() }
-        });
-        return response;
+    public async getBeatmapByFilename(filename: string): Promise<Beatmap> {
+        const raw = await this.getBeatmapRaw(filename, BeatmapLookupType.Filename);
+        return new Beatmap(this, raw);
     }
 
     /**
@@ -197,6 +189,24 @@ export abstract class Client extends EventEmitter {
         return response;
     }
 
+
+    /**
+     * Gets a beatmapset using its ID
+     *
+     * @param id The beatmapset ID
+     */
+    public async getBeatmapset(id: number | string): Promise<Beatmapset> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
+        const response = await this.requestHandler.request<BeatmapsetResponse>({
+            auth: this.token.access_token,
+            endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAPSET_SINGLE,
+            endpointArguments: { beatmapset: id.toString() },
+            type: RequestType.GET
+        });
+        return new Beatmapset(this, response);
+    }
 
     /**
      * Gets information about a particular user
@@ -271,6 +281,20 @@ export abstract class Client extends EventEmitter {
             type: RequestType.GET
         });
 
+        return response;
+    }
+
+    /** @internal */
+    public async getBeatmapRaw(query: number | string, type: BeatmapLookupType): Promise<BeatmapResponse> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
+        const response = await this.requestHandler.request<BeatmapResponse>({
+            auth: this.token.access_token,
+            endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_LOOKUP,
+            type: RequestType.GET,
+            query: { [type]: query.toString() }
+        });
         return response;
     }
 }
