@@ -67,6 +67,13 @@ export class Lazy<T> {
     public isEvaluated() {
         return "instance" in this;
     }
+
+    /**
+     * Sets an already-existing eager instance of `T`
+     */
+    public set(instance: T | undefined) {
+        return this.instance = instance;
+    }
 }
 
 /**
