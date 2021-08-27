@@ -5,6 +5,7 @@ import {
 import { Gamemode, Playstyle, ProfileSection, InfringementType } from "../Enums";
 import { Client } from "../Clients/Client";
 import { Base } from "./Base";
+import { CanBeLazy } from "../Util/Lazy";
 
 export interface UserCompact {
     /** The user's ID */
@@ -333,6 +334,7 @@ export interface UserStatistics {
 
 export interface User extends UserCompact, Partial<UserExtended> {};
 /** Represents an osu player */
+@CanBeLazy()
 export class User extends Base {
     /**
      * Construct a User
@@ -358,6 +360,10 @@ export class User extends Base {
 
         if ("user_achievements" in data)
             this.populateExtended(data);
+    }
+
+    public static async eval(client: Client, id: number) {
+        return await client.getUser(id);
     }
 
     /**
