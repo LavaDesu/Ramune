@@ -65,7 +65,7 @@ export class Lazy<T> {
      * Checks if `T` is already evaluated
      */
     public isEvaluated() {
-        return this.instance !== undefined;
+        return "instance" in this;
     }
 }
 
