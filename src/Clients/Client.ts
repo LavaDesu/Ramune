@@ -9,7 +9,7 @@ import {
     RequestType,
     ScoreType
 } from "../Enums";
-import { RequestHandler, RequestHandlerOptions } from "../RequestHandler";
+import { RequestHandler, RequestHandlerOptions, RequestObject } from "../RequestHandler";
 
 import {
     Beatmap as BeatmapResponse,
