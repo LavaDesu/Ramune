@@ -297,6 +297,17 @@ export abstract class Client extends EventEmitter {
         });
         return response;
     }
+
+    /** @internal */
+    public async internalRequest<T>(baseRequest: RequestObject): Promise<T> {
+        if (!this.token)
+            throw new MissingTokenError(this.missingTokenMessage);
+
+        return await this.requestHandler.request<T>({
+            ...baseRequest,
+            auth: this.token.access_token
+        });
+    }
 }
 
 /**

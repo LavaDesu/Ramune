@@ -9,4 +9,5 @@ export * from "./RequestHandler";
 export * from "./Structures/User";
 
 export * from "./Util/Collection";
+export * from "./Util/Cursor";
 export * from "./Util/Lazy";
