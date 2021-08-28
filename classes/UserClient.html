@@ -119,6 +119,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getBeatmapByFilename" class="tsd-kind-icon">get<wbr>Beatmap<wbr>ByFilename</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getBeatmapScores" class="tsd-kind-icon">get<wbr>Beatmap<wbr>Scores</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getBeatmapUserScore" class="tsd-kind-icon">get<wbr>Beatmap<wbr>User<wbr>Score</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getBeatmapset" class="tsd-kind-icon">get<wbr>Beatmapset</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="UserClient.html#getMaxListeners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getUser" class="tsd-kind-icon">get<wbr>User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getUserByName" class="tsd-kind-icon">get<wbr>User<wbr>ByName</a></li>
@@ -482,6 +483,35 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getBeatmapset" class="tsd-anchor"></a>
+					<h3>get<wbr>Beatmapset</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Beatmapset<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Beatmapset</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="Client.html">Client</a>.<a href="Client.html#getBeatmapset">getBeatmapset</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a beatmapset using its ID</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The beatmapset ID</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Beatmapset</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 					<a name="getMaxListeners" class="tsd-anchor"></a>
 					<h3>get<wbr>Max<wbr>Listeners</h3>
@@ -576,7 +606,7 @@
 					<a name="getUserScores" class="tsd-anchor"></a>
 					<h3>get<wbr>User<wbr>Scores</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>User<wbr>Scores<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><a href="../modules.html#ScoreType" class="tsd-signature-type" data-tsd-kind="Variable">ScoreType</a>, mode<span class="tsd-signature-symbol">?: </span><a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>User<wbr>Scores<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><a href="../modules.html#ScoreType" class="tsd-signature-type" data-tsd-kind="Variable">ScoreType</a>, mode<span class="tsd-signature-symbol">?: </span><a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="BasicCursor.html" class="tsd-signature-type" data-tsd-kind="Class">BasicCursor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -609,7 +639,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="BasicCursor.html" class="tsd-signature-type" data-tsd-kind="Class">BasicCursor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>An array of scores</p>
 						</li>
 					</ul>
@@ -1074,6 +1104,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="UserClient.html#getBeatmapUserScore" class="tsd-kind-icon">get<wbr>Beatmap<wbr>User<wbr>Score</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="UserClient.html#getBeatmapset" class="tsd-kind-icon">get<wbr>Beatmapset</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="UserClient.html#getMaxListeners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
 							</li>
@@ -1149,11 +1182,15 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
