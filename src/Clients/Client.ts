@@ -22,6 +22,7 @@ import {
 import { MissingTokenError } from "../Errors";
 import { Beatmap, Beatmapset } from "../Structures/Beatmap";
 import { User } from "../Structures/User";
+import { BasicCursor } from "../Util/Cursor";
 
 declare function tokenUpdate(token: Token): void;
 
@@ -247,18 +248,21 @@ export abstract class Client extends EventEmitter {
      *
      * @returns An array of scores
      */
-    public async getUserScores(id: number | string, type: ScoreType, mode?: Gamemode): Promise<ScoreResponse[]> {
+    public getUserScores(id: number | string, type: ScoreType, mode?: Gamemode): BasicCursor<ScoreResponse, ScoreResponse> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
 
-        const response = await this.requestHandler.request<ScoreResponse[]>({
-            auth: this.token.access_token,
-            endpoint: Endpoints.API_PREFIX + Endpoints.USER_SCORES,
-            endpointArguments: { user: id.toString(), type },
-            query: mode ? { mode } : {},
-            type: RequestType.GET
-        });
-        return response;
+        return new BasicCursor<ScoreResponse, ScoreResponse>(
+            this,
+            {
+                auth: this.token.access_token,
+                endpoint: Endpoints.API_PREFIX + Endpoints.USER_SCORES,
+                endpointArguments: { user: id.toString(), type },
+                query: mode ? { mode } : {},
+                type: RequestType.GET
+            },
+            async res => res
+        );
     }
 
     /**
