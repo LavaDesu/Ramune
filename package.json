@@ -1,7 +1,7 @@
 {
   "name": "ramune",
   "description": "An osu!api v2 library.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/Ramune.js",
   "types": "lib/Ramune.d.ts",
   "license": "MIT",
