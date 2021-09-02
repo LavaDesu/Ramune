@@ -61,12 +61,7 @@ export class RequestHandler { // TODO: Other request types
                 res.on("data", d => raw += d);
                 res.on("end", () => {
                     if (res.statusCode && res.statusCode >= 400) {
-                        pReject({
-                            type: "network",
-                            code: res.statusCode!,
-                            message: res.statusMessage,
-                            response: raw
-                        });
+                        pReject(new RequestNetworkError(res.statusCode!, res.statusMessage ?? "No message", raw));
                         return;
                     }
 
@@ -77,18 +72,12 @@ export class RequestHandler { // TODO: Other request types
                         else
                             pResolve(JSON.parse(raw) as T);
                     } catch(err) {
-                        pReject({
-                            type: "local",
-                            error: err
-                        });
+                        pReject(err);
                     }
                 });
             })
             .on("error", (err: Error) => {
-                pReject({
-                    type: "local",
-                    error: err
-                });
+                pReject(err);
             });
 
         if (data.type === RequestType.POST)
@@ -136,17 +125,20 @@ export class RequestHandler { // TODO: Other request types
     }
 }
 
-export type RequestLocalError = {
-    type: "local";
-    error: any;
+export class RequestNetworkError extends Error {
+    public type = "network";
+    public code: number;
+    public message: string;
+    public response?: string;
+
+    constructor(code: number, message: string, response?: string) {
+        super(message);
+        this.code = code;
+        this.message = message;
+        this.response = response;
+    }
 };
-export type RequestNetworkError = {
-    type: "network";
-    code: number;
-    message?: string;
-    response?: string;
-};
-export type RequestError = RequestLocalError | RequestNetworkError;
+export type RequestError = Error | RequestNetworkError;
 
 /**
  * A base request
