@@ -22,7 +22,7 @@ import {
 import { MissingTokenError } from "../Errors";
 import { Beatmap, Beatmapset } from "../Structures/Beatmap";
 import { User } from "../Structures/User";
-import { BasicCursor } from "../Util/Cursor";
+import { IndexedCursor } from "../Util/Cursor";
 
 declare function tokenUpdate(token: Token): void;
 
@@ -235,8 +235,8 @@ export abstract class Client extends EventEmitter {
      *
      * @returns An array of scores
      */
-    public getUserScores(id: number | string, type: ScoreType, mode?: Gamemode): BasicCursor<ScoreResponse, ScoreResponse> {
-        return new BasicCursor<ScoreResponse, ScoreResponse>(
+    public getUserScores(id: number | string, type: ScoreType, mode?: Gamemode): IndexedCursor<ScoreResponse, ScoreResponse> {
+        return new IndexedCursor<ScoreResponse, ScoreResponse>(
             this,
             {
                 endpoint: Endpoints.API_PREFIX + Endpoints.USER_SCORES,

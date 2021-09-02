@@ -92,12 +92,12 @@ export abstract class Cursor<T> implements AsyncIterable<T>, AsyncIterator<T[], 
 export type Processor<T, U> = (raw: U[]) => Promise<T[]>;
 
 /**
- * A basic cursor paginating using `limit` and `offset`
+ * A cursor paginating with an `offset`
  *
  * @typeParam T Structure this cursor will output on {@link next}
  * @typeParam U Raw input type that's passed to the processor
  */
-export class BasicCursor<T, U> extends Cursor<T> {
+export class IndexedCursor<T, U> extends Cursor<T> {
     private readonly client: Client;
     private readonly baseRequest: BaseRequestObject;
     private readonly processor: Processor<T, U>;
@@ -105,7 +105,7 @@ export class BasicCursor<T, U> extends Cursor<T> {
     private index: number = 0;
 
     /**
-     * Constructs a basic pagination cursor
+     * Constructs an indexed pagination cursor
      *
      * @param client Parent client
      * @param baseRequest Base request for data
@@ -148,10 +148,10 @@ export class BasicCursor<T, U> extends Cursor<T> {
      *
      * @param index Index to start the new cursor from
      */
-    public withIndex(index: number): BasicCursor<T, U> {
+    public withIndex(index: number): IndexedCursor<T, U> {
         if (index < 0)
             throw new TypeError("Starting index is a negative integer");
-        const newCursor = new BasicCursor(this.client, this.baseRequest, this.processor);
+        const newCursor = new IndexedCursor(this.client, this.baseRequest, this.processor);
         newCursor.index = index;
         return newCursor;
     }
