@@ -71,19 +71,21 @@
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class"><a href="classes/Base.html" class="tsd-kind-icon">Base</a></li>
-								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/BasicCursor.html" class="tsd-kind-icon">Basic<wbr>Cursor</a></li>
 								<li class="tsd-kind-class"><a href="classes/Beatmap.html" class="tsd-kind-icon">Beatmap</a></li>
 								<li class="tsd-kind-class"><a href="classes/Beatmapset.html" class="tsd-kind-icon">Beatmapset</a></li>
 								<li class="tsd-kind-class"><a href="classes/Bucket.html" class="tsd-kind-icon">Bucket</a></li>
 								<li class="tsd-kind-class"><a href="classes/Client.html" class="tsd-kind-icon">Client</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/Collection.html" class="tsd-kind-icon">Collection</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/Cursor.html" class="tsd-kind-icon">Cursor</a></li>
+								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/IndexedCursor.html" class="tsd-kind-icon">Indexed<wbr>Cursor</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/Lazy.html" class="tsd-kind-icon">Lazy</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/LazyCollection.html" class="tsd-kind-icon">Lazy<wbr>Collection</a></li>
 								<li class="tsd-kind-class"><a href="classes/Lock.html" class="tsd-kind-icon">Lock</a></li>
+								<li class="tsd-kind-class"><a href="classes/MatchCursor.html" class="tsd-kind-icon">Match<wbr>Cursor</a></li>
 								<li class="tsd-kind-class"><a href="classes/MissingTokenError.html" class="tsd-kind-icon">Missing<wbr>Token<wbr>Error</a></li>
 								<li class="tsd-kind-class"><a href="classes/Ramune.html" class="tsd-kind-icon">Ramune</a></li>
 								<li class="tsd-kind-class"><a href="classes/RequestHandler.html" class="tsd-kind-icon">Request<wbr>Handler</a></li>
+								<li class="tsd-kind-class"><a href="classes/RequestNetworkError.html" class="tsd-kind-icon">Request<wbr>Network<wbr>Error</a></li>
 								<li class="tsd-kind-class"><a href="classes/User.html" class="tsd-kind-icon">User</a></li>
 								<li class="tsd-kind-class"><a href="classes/UserClient.html" class="tsd-kind-icon">User<wbr>Client</a></li>
 							</ul>
@@ -113,13 +115,12 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="modules.html#BaseRequestObject" class="tsd-kind-icon">Base<wbr>Request<wbr>Object</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#BeatmapScoreOptions" class="tsd-kind-icon">Beatmap<wbr>Score<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#ClientOptions" class="tsd-kind-icon">Client<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#Processor" class="tsd-kind-icon">Processor</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#RequestError" class="tsd-kind-icon">Request<wbr>Error</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#RequestHandlerOptions" class="tsd-kind-icon">Request<wbr>Handler<wbr>Options</a></li>
-								<li class="tsd-kind-type-alias"><a href="modules.html#RequestLocalError" class="tsd-kind-icon">Request<wbr>Local<wbr>Error</a></li>
-								<li class="tsd-kind-type-alias"><a href="modules.html#RequestNetworkError" class="tsd-kind-icon">Request<wbr>Network<wbr>Error</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#RequestObject" class="tsd-kind-icon">Request<wbr>Object</a></li>
 							</ul>
 						</section>
@@ -158,6 +159,13 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="BaseRequestObject" class="tsd-anchor"></a>
+					<h3>Base<wbr>Request<wbr>Object</h3>
+					<div class="tsd-signature tsd-kind-icon">Base<wbr>Request<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Optional</span><span class="tsd-signature-symbol">&lt;</span><a href="modules.html#RequestObject" class="tsd-signature-type" data-tsd-kind="Type alias">RequestObject</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;auth&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;type&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="BeatmapScoreOptions" class="tsd-anchor"></a>
 					<h3>Beatmap<wbr>Score<wbr>Options</h3>
@@ -275,7 +283,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="RequestError" class="tsd-anchor"></a>
 					<h3>Request<wbr>Error</h3>
-					<div class="tsd-signature tsd-kind-icon">Request<wbr>Error<span class="tsd-signature-symbol">:</span> <a href="modules.html#RequestLocalError" class="tsd-signature-type" data-tsd-kind="Type alias">RequestLocalError</a><span class="tsd-signature-symbol"> | </span><a href="modules.html#RequestNetworkError" class="tsd-signature-type" data-tsd-kind="Type alias">RequestNetworkError</a></div>
+					<div class="tsd-signature tsd-kind-icon">Request<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol"> | </span><a href="classes/RequestNetworkError.html" class="tsd-signature-type" data-tsd-kind="Class">RequestNetworkError</a></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -301,48 +309,6 @@
 										<h5>limit<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 									</li>
 								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="RequestLocalError" class="tsd-anchor"></a>
-					<h3>Request<wbr>Local<wbr>Error</h3>
-					<div class="tsd-signature tsd-kind-icon">Request<wbr>Local<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;local&quot;</span><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;local&quot;</span></h5>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias">
-					<a name="RequestNetworkError" class="tsd-anchor"></a>
-					<h3>Request<wbr>Network<wbr>Error</h3>
-					<div class="tsd-signature tsd-kind-icon">Request<wbr>Network<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>message<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>response<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;network&quot;</span><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> message<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> response<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;network&quot;</span></h5>
 							</li>
 						</ul>
 					</div>
@@ -1198,9 +1164,6 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/Base.html" class="tsd-kind-icon">Base</a>
 					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="classes/BasicCursor.html" class="tsd-kind-icon">Basic<wbr>Cursor</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/Beatmap.html" class="tsd-kind-icon">Beatmap</a>
 					</li>
@@ -1220,6 +1183,9 @@
 						<a href="classes/Cursor.html" class="tsd-kind-icon">Cursor</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/IndexedCursor.html" class="tsd-kind-icon">Indexed<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/Lazy.html" class="tsd-kind-icon">Lazy</a>
 					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
@@ -1229,6 +1195,9 @@
 						<a href="classes/Lock.html" class="tsd-kind-icon">Lock</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/MatchCursor.html" class="tsd-kind-icon">Match<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/MissingTokenError.html" class="tsd-kind-icon">Missing<wbr>Token<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -1236,6 +1205,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/RequestHandler.html" class="tsd-kind-icon">Request<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/RequestNetworkError.html" class="tsd-kind-icon">Request<wbr>Network<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/User.html" class="tsd-kind-icon">User</a>
@@ -1295,6 +1267,9 @@
 						<a href="interfaces/UserStatistics.html" class="tsd-kind-icon">User<wbr>Statistics</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#BaseRequestObject" class="tsd-kind-icon">Base<wbr>Request<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#BeatmapScoreOptions" class="tsd-kind-icon">Beatmap<wbr>Score<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
@@ -1308,12 +1283,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#RequestHandlerOptions" class="tsd-kind-icon">Request<wbr>Handler<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#RequestLocalError" class="tsd-kind-icon">Request<wbr>Local<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#RequestNetworkError" class="tsd-kind-icon">Request<wbr>Network<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#RequestObject" class="tsd-kind-icon">Request<wbr>Object</a>

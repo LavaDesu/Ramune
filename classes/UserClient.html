@@ -120,6 +120,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getBeatmapScores" class="tsd-kind-icon">get<wbr>Beatmap<wbr>Scores</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getBeatmapUserScore" class="tsd-kind-icon">get<wbr>Beatmap<wbr>User<wbr>Score</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getBeatmapset" class="tsd-kind-icon">get<wbr>Beatmapset</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getMatch" class="tsd-kind-icon">get<wbr>Match</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getMatches" class="tsd-kind-icon">get<wbr>Matches</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="UserClient.html#getMaxListeners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getUser" class="tsd-kind-icon">get<wbr>User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="UserClient.html#getUserByName" class="tsd-kind-icon">get<wbr>User<wbr>ByName</a></li>
@@ -512,6 +514,52 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getMatch" class="tsd-anchor"></a>
+					<h3>get<wbr>Match</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Match<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="Client.html">Client</a>.<a href="Client.html#getMatch">getMatch</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a match</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getMatches" class="tsd-anchor"></a>
+					<h3>get<wbr>Matches</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Matches<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="MatchCursor.html" class="tsd-signature-type" data-tsd-kind="Class">MatchCursor</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="Client.html">Client</a>.<a href="Client.html#getMatches">getMatches</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets all matches</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="MatchCursor.html" class="tsd-signature-type" data-tsd-kind="Class">MatchCursor</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 					<a name="getMaxListeners" class="tsd-anchor"></a>
 					<h3>get<wbr>Max<wbr>Listeners</h3>
@@ -606,7 +654,7 @@
 					<a name="getUserScores" class="tsd-anchor"></a>
 					<h3>get<wbr>User<wbr>Scores</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>User<wbr>Scores<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><a href="../modules.html#ScoreType" class="tsd-signature-type" data-tsd-kind="Variable">ScoreType</a>, mode<span class="tsd-signature-symbol">?: </span><a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="BasicCursor.html" class="tsd-signature-type" data-tsd-kind="Class">BasicCursor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>User<wbr>Scores<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><a href="../modules.html#ScoreType" class="tsd-signature-type" data-tsd-kind="Variable">ScoreType</a>, mode<span class="tsd-signature-symbol">?: </span><a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="IndexedCursor.html" class="tsd-signature-type" data-tsd-kind="Class">IndexedCursor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -639,7 +687,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="BasicCursor.html" class="tsd-signature-type" data-tsd-kind="Class">BasicCursor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="IndexedCursor.html" class="tsd-signature-type" data-tsd-kind="Class">IndexedCursor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Score</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>An array of scores</p>
 						</li>
 					</ul>
@@ -1106,6 +1154,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="UserClient.html#getBeatmapset" class="tsd-kind-icon">get<wbr>Beatmapset</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="UserClient.html#getMatch" class="tsd-kind-icon">get<wbr>Match</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="UserClient.html#getMatches" class="tsd-kind-icon">get<wbr>Matches</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="UserClient.html#getMaxListeners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
