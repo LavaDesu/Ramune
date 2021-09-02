@@ -10,6 +10,7 @@ export * from "./RequestHandler";
 
 export * from "./Structures/Base";
 export * from "./Structures/Beatmap";
+export * from "./Structures/Match";
 export * from "./Structures/User";
 
 export * from "./Util/Collection";
