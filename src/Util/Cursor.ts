@@ -1,4 +1,4 @@
-import { Client } from "../Clients/Client";
+import { BaseRequestObject, Client } from "../Clients/Client";
 import { RequestObject } from "../RequestHandler";
 
 // TODO: this needs a dedicated documentation page
@@ -99,7 +99,7 @@ export type Processor<T, U> = (raw: U[]) => Promise<T[]>;
  */
 export class BasicCursor<T, U> extends Cursor<T> {
     private readonly client: Client;
-    private readonly baseRequest: RequestObject;
+    private readonly baseRequest: BaseRequestObject;
     private readonly processor: Processor<T, U>;
 
     private index: number = 0;
@@ -111,7 +111,7 @@ export class BasicCursor<T, U> extends Cursor<T> {
      * @param baseRequest Base request for data
      * @param processor A function that converts the raw response from the request into the output type
      */
-    constructor(client: Client, baseRequest: RequestObject, processor: Processor<T, U>) {
+    constructor(client: Client, baseRequest: BaseRequestObject, processor: Processor<T, U>) {
         super();
         this.client = client;
         this.baseRequest = baseRequest;

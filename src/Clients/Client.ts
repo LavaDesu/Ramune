@@ -37,6 +37,8 @@ export interface Client {
     /** @hidden */
     once: ClientEvents<this>;
 }
+type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+export type BaseRequestObject = Optional<RequestObject, "auth" | "type">;
 
 /**
  * An OAuth Client, storing a token and request handler that can be used to
@@ -80,7 +82,7 @@ export abstract class Client extends EventEmitter {
      * @internal
      */
     protected updateToken(token: Token) {
-        // XXX: Should this be prepended every request instead?
+        // NOTE: Should this be prepended every request instead?
         token.access_token = "Bearer " + token.access_token;
         this.token = token;
 
@@ -140,19 +142,14 @@ export abstract class Client extends EventEmitter {
         id: number | string,
         options: BeatmapScoreOptions
     ): Promise<BeatmapScoresResponse> {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
         const query: Record<string, string> = {
             type: options.type ?? BeatmapLeaderboardScope.Global
         };
         if (options.mode) query.mode = options.mode;
         if (options.mods) query.mode = options.mods.join("+");
-        const response = await this.requestHandler.request<BeatmapScoresResponse>({
-            auth: this.token.access_token,
+        const response = await this.internalRequest<BeatmapScoresResponse>({
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_SCORES,
             endpointArguments: { beatmap: id.toString() },
-            type: RequestType.GET,
             query
         });
         return response;
@@ -172,19 +169,14 @@ export abstract class Client extends EventEmitter {
         userID: number | string,
         options: BeatmapScoreOptions
     ): Promise<BeatmapUserScoreResponse> {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
         const query: Record<string, string> = {
             type: options.type ?? BeatmapLeaderboardScope.Global
         };
         if (options.mode) query.mode = options.mode;
         if (options.mods) query.mode = options.mods.join("+");
-        const response = await this.requestHandler.request<BeatmapUserScoreResponse>({
-            auth: this.token.access_token,
+        const response = await this.internalRequest<BeatmapUserScoreResponse>({
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_USER_SCORE,
             endpointArguments: { beatmap: beatmapID.toString(), user: userID.toString() },
-            type: RequestType.GET,
             query
         });
         return response;
@@ -197,14 +189,9 @@ export abstract class Client extends EventEmitter {
      * @param id The beatmapset ID
      */
     public async getBeatmapset(id: number | string): Promise<Beatmapset> {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
-        const response = await this.requestHandler.request<BeatmapsetResponse>({
-            auth: this.token.access_token,
+        const response = await this.internalRequest<BeatmapsetResponse>({
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAPSET_SINGLE,
-            endpointArguments: { beatmapset: id.toString() },
-            type: RequestType.GET
+            endpointArguments: { beatmapset: id.toString() }
         });
         return new Beatmapset(this, response);
     }
@@ -249,17 +236,12 @@ export abstract class Client extends EventEmitter {
      * @returns An array of scores
      */
     public getUserScores(id: number | string, type: ScoreType, mode?: Gamemode): BasicCursor<ScoreResponse, ScoreResponse> {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
         return new BasicCursor<ScoreResponse, ScoreResponse>(
             this,
             {
-                auth: this.token.access_token,
                 endpoint: Endpoints.API_PREFIX + Endpoints.USER_SCORES,
                 endpointArguments: { user: id.toString(), type },
-                query: mode ? { mode } : {},
-                type: RequestType.GET
+                query: mode ? { mode } : {}
             },
             async res => res
         );
@@ -274,15 +256,10 @@ export abstract class Client extends EventEmitter {
      * @internal
      */
     public async getUserRaw(query: string, key: "id" | "username", mode?: Gamemode) {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
-        const response = await this.requestHandler.request<UserResponse>({
-            auth: this.token.access_token,
+        const response = await this.internalRequest<UserResponse>({
             endpoint: Endpoints.API_PREFIX + Endpoints.USER_SINGLE,
             endpointArguments: { user: query, mode: mode ?? "" },
-            query: { key },
-            type: RequestType.GET
+            query: { key }
         });
 
         return response;
@@ -290,11 +267,7 @@ export abstract class Client extends EventEmitter {
 
     /** @internal */
     public async getBeatmapRaw(query: number | string, type: BeatmapLookupType): Promise<BeatmapResponse> {
-        if (!this.token)
-            throw new MissingTokenError(this.missingTokenMessage);
-
-        const response = await this.requestHandler.request<BeatmapResponse>({
-            auth: this.token.access_token,
+        const response = await this.internalRequest<BeatmapResponse>({
             endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_LOOKUP,
             type: RequestType.GET,
             query: { [type]: query.toString() }
@@ -303,13 +276,14 @@ export abstract class Client extends EventEmitter {
     }
 
     /** @internal */
-    public async internalRequest<T>(baseRequest: RequestObject): Promise<T> {
+    public async internalRequest<T>(args: BaseRequestObject): Promise<T> {
         if (!this.token)
             throw new MissingTokenError(this.missingTokenMessage);
 
         return await this.requestHandler.request<T>({
-            ...baseRequest,
-            auth: this.token.access_token
+            auth: this.token.access_token,
+            type: RequestType.GET,
+            ...args
         });
     }
 }
