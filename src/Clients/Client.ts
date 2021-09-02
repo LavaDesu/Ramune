@@ -22,7 +22,8 @@ import {
 import { MissingTokenError } from "../Errors";
 import { Beatmap, Beatmapset } from "../Structures/Beatmap";
 import { User } from "../Structures/User";
-import { IndexedCursor } from "../Util/Cursor";
+import { IndexedCursor, MatchCursor } from "../Util/Cursor";
+import { Match, MatchResponse } from "../Structures/Match";
 
 declare function tokenUpdate(token: Token): void;
 
@@ -195,6 +196,26 @@ export abstract class Client extends EventEmitter {
         });
         return new Beatmapset(this, response);
     }
+
+
+    /**
+     * Gets a match
+     */
+    public async getMatch(id: number | string): Promise<Match> {
+        const response = await this.internalRequest<MatchResponse>({
+            endpoint: Endpoints.API_PREFIX + Endpoints.MATCH_SINGLE,
+            endpointArguments: { match: id.toString() }
+        });
+        return new Match(this, response);
+    }
+
+    /**
+     * Gets all matches
+     */
+    public getMatches() {
+        return new MatchCursor(this);
+    }
+
 
     /**
      * Gets information about a particular user

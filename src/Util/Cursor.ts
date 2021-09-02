@@ -1,5 +1,6 @@
 import { BaseRequestObject, Client } from "../Clients/Client";
-import { RequestObject } from "../RequestHandler";
+import { Endpoints } from "../Endpoints";
+import { Match, MatchCompactResponse } from "../Structures/Match";
 
 // TODO: this needs a dedicated documentation page
 /**
@@ -154,5 +155,61 @@ export class IndexedCursor<T, U> extends Cursor<T> {
         const newCursor = new IndexedCursor(this.client, this.baseRequest, this.processor);
         newCursor.index = index;
         return newCursor;
+    }
+}
+
+/**
+ * A cursor for paginating the `/matches` endpoint
+ */
+export class MatchCursor extends Cursor<Match> {
+    private readonly client: Client;
+    private readonly state: {
+        query: Record<string, string>;
+        lastMatch: number | undefined;
+        done: boolean;
+    };
+
+    constructor(client: Client) {
+        super();
+        this.client = client;
+        this.state = {
+            query: {},
+            lastMatch: undefined,
+            done: false
+        };
+    }
+
+    protected async getNext(count: number) {
+        if (this.state.done)
+            return {
+                value: [],
+                done: true
+            };
+
+        interface MatchResponse {
+            cursor: { match_id: number };
+            matches: MatchCompactResponse[];
+            params: Record<string, string>;
+        }
+        const response = await this.client.internalRequest<MatchResponse>({
+            endpoint: Endpoints.API_PREFIX + Endpoints.MATCHES,
+            query: {
+                ...this.state.query,
+                "cursor[match_id]": this.state.lastMatch?.toString() ?? ""
+            }
+        });
+        this.state.lastMatch = response.cursor.match_id;
+        this.state.query = response.params;
+
+        // FIXME: silent hardcoded 100 cap
+        if (response.matches && response.matches.length < Math.min(count, 100))
+            this.state.done = true;
+
+        const matches = response.matches.map(match => new Match(this.client, match));
+
+        return {
+            value: matches,
+            done: this.state.done
+        };
     }
 }
