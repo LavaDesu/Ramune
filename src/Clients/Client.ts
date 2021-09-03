@@ -1,7 +1,6 @@
 import { EventEmitter } from "events";
 import { Endpoints } from "../Endpoints";
 import { MissingTokenError } from "../Errors";
-import { RequestHandler, RequestHandlerOptions, RequestObject } from "../RequestHandler";
 
 import {
     BeatmapLeaderboardScope,
@@ -29,7 +28,10 @@ import {
 } from "../Structures";
 import {
     IndexedCursor,
-    MatchCursor
+    MatchCursor,
+    RequestHandler,
+    RequestHandlerOptions,
+    RequestObject
 } from "../Utils";
 
 declare function tokenUpdate(token: Token): void;
