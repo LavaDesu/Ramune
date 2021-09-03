@@ -13,7 +13,7 @@ async function main() {
 
     app.options.addReader(new TSConfigReader());
     app.bootstrap({
-        entryPoints: ["./src/Ramune.ts"],
+        entryPoints: ["./src/index.ts"],
         excludeInternal: true,
         excludePrivate: true,
         name: "Ramune",
