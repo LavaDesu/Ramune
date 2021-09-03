@@ -1,4 +1,4 @@
-import { Client } from "../Clients/Client";
+import { Client } from "../Clients";
 
 type Mutable<T> = {
     -readonly [k in keyof T]: T[k];

@@ -1,4 +1,4 @@
-import { UserCompact } from "./User";
+import { UserCompact } from "./";
 
 export type Match = MatchCompact | MatchExtended;
 export interface MatchCompact {

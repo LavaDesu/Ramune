@@ -1,5 +1,5 @@
-import { Client } from "../Clients/Client";
-import { Collection } from "./Collection";
+import { Client } from "../Clients";
+import { Collection } from "./";
 
 /**
  * Decorates a class and forces it to have the static method

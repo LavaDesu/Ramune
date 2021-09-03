@@ -1,8 +1,8 @@
-import { User as UserResponse } from "../Responses";
+import { Client } from "../Clients";
 import { Gamemode, Playstyle, ProfileSection, InfringementType } from "../Enums";
-import { Client } from "../Clients/Client";
-import { BaseCompactable, Compact } from "./Base";
-import { CanBeLazy } from "../Util/Lazy";
+import { User as UserResponse } from "../Responses";
+import { CanBeLazy } from "../Utils";
+import { BaseCompactable, Compact } from "./";
 
 export interface User extends UserProperties.Compact, UserProperties.Extended {};
 export type UserCompact = Compact<User, UserProperties.Extended>;

@@ -1,8 +1,7 @@
-import { Client } from "../Clients/Client";
-import { MatchEvent, Match as MatchResponse } from "../Responses/Match";
-import { CanBeLazy } from "../Util/Lazy";
-import { BaseCompactable } from "./Base";
-import { User, UserCompact } from "./User";
+import { Client } from "../Clients";
+import { MatchEvent, Match as MatchResponse } from "../Responses";
+import { CanBeLazy } from "../Utils";
+import { BaseCompactable, User, UserCompact } from "./";
 
 export interface Match extends MatchProperties.Compact, MatchProperties.Extended {}
 /**

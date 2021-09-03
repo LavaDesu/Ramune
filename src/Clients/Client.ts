@@ -1,6 +1,8 @@
 import { EventEmitter } from "events";
-import { Token } from "../Responses/Token";
 import { Endpoints } from "../Endpoints";
+import { MissingTokenError } from "../Errors";
+import { RequestHandler, RequestHandlerOptions, RequestObject } from "../RequestHandler";
+
 import {
     BeatmapLeaderboardScope,
     BeatmapLookupType,
@@ -9,9 +11,8 @@ import {
     RequestType,
     ScoreType
 } from "../Enums";
-import { RequestHandler, RequestHandlerOptions, RequestObject } from "../RequestHandler";
-
 import {
+    Token,
     Beatmap as BeatmapResponse,
     BeatmapScores as BeatmapScoresResponse,
     BeatmapUserScore as BeatmapUserScoreResponse,
@@ -20,12 +21,16 @@ import {
     Score as ScoreResponse,
     User as UserResponse
 } from "../Responses";
-import { MissingTokenError } from "../Errors";
-import { Beatmap } from "../Structures/Beatmap";
-import { Beatmapset } from "../Structures/Beatmapset";
-import { Match } from "../Structures/Match";
-import { User } from "../Structures/User";
-import { IndexedCursor, MatchCursor } from "../Util/Cursor";
+import {
+    Beatmap,
+    Beatmapset,
+    Match,
+    User
+} from "../Structures";
+import {
+    IndexedCursor,
+    MatchCursor
+} from "../Utils";
 
 declare function tokenUpdate(token: Token): void;
 

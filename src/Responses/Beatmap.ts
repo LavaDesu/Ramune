@@ -1,6 +1,5 @@
 import { BeatmapsetOnlineStatus, Gamemode } from "../Enums";
-import { Score } from "./Score";
-import { UserCompact } from "./User";
+import { Score, UserCompact } from "./";
 
 export type Beatmap = BeatmapCompact | BeatmapExtended;
 export interface BeatmapCompact {

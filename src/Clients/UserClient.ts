@@ -1,9 +1,8 @@
-import { Client, ClientOptions } from "./Client";
+import { Client, ClientOptions, Ramune } from "./";
 import { Endpoints } from "../Endpoints";
 import { GrantType, RequestType } from "../Enums";
 import { MissingTokenError } from "../Errors";
-import { Ramune } from "./Ramune";
-import { Token } from "../Responses/Token";
+import { Token } from "../Responses";
 
 /**
  * An OAuth Client that is authenticated as a user.

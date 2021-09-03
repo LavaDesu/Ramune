@@ -1,6 +1,5 @@
 import { Gamemode, Mod, ScoreRank } from "../Enums";
-import { Beatmap, Beatmapset } from "./Beatmap";
-import { UserCompact } from "./User";
+import { Beatmap, Beatmapset, UserCompact } from "./";
 
 /**
  * Score object

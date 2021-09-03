@@ -1,7 +1,7 @@
-import { BaseRequestObject, Client } from "../Clients/Client";
+import { BaseRequestObject, Client } from "../Clients";
 import { Endpoints } from "../Endpoints";
 import { MatchCompact as MatchCompactResponse } from "../Responses";
-import { Match } from "../Structures/Match";
+import { Match } from "../Structures";
 
 // TODO: this needs a dedicated documentation page
 /**

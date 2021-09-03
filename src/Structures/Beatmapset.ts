@@ -1,9 +1,7 @@
-import { Client } from "../Clients/Client";
+import { Client } from "../Clients";
 import { Beatmapset as BeatmapsetResponse } from "../Responses";
-import { CanBeLazy, Lazy } from "../Util/Lazy";
-import { BaseCompactable } from "./Base";
-import { Beatmap, NamedID } from "./Beatmap";
-import { User } from "./User";
+import { CanBeLazy, Lazy } from "../Utils";
+import { BaseCompactable, Beatmap, NamedID, User } from "./";
 
 export interface Beatmapset extends BeatmapsetProperties.Compact, BeatmapsetProperties.Extended {}
 @CanBeLazy()

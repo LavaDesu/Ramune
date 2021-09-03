@@ -2,8 +2,8 @@ import { IncomingMessage, RequestOptions } from "http";
 import { request } from "https";
 import { URLSearchParams } from "url";
 
-import { Bucket } from "./Bucket";
-import { RequestType } from "./Enums";
+import { RequestType } from "../Enums";
+import { Bucket } from "./";
 
 import { version as VERSION } from "../package.json";
 

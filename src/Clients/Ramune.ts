@@ -1,8 +1,7 @@
-import { Client, ClientOptions } from "./Client";
+import { Client, ClientOptions, UserClient } from "./";
 import { Endpoints } from "../Endpoints";
-import { Token } from "../Responses/Token";
 import { GrantType, RequestType } from "../Enums";
-import { UserClient } from "./UserClient";
+import { Token } from "../Responses";
 
 /**
  * Represents an OAuth app, and should be the first thing to create in order

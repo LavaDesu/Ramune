@@ -1,9 +1,8 @@
-import { Client } from "../Clients/Client";
+import { Client } from "../Clients";
 import { BeatmapLookupType, BeatmapsetOnlineStatus, Gamemode } from "../Enums";
 import { Beatmap as BeatmapResponse } from "../Responses";
-import { CanBeLazy, Lazy } from "../Util/Lazy";
-import { BaseCompactable } from "./Base";
-import { Beatmapset } from "./Beatmapset";
+import { CanBeLazy, Lazy } from "../Utils";
+import { BaseCompactable, Beatmapset } from "./";
 
 export interface Beatmap extends BeatmapProperties.Compact, BeatmapProperties.Extended {}
 @CanBeLazy()
