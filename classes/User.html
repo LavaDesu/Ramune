@@ -76,13 +76,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="../interfaces/UserCompact.html" class="tsd-signature-type" data-tsd-kind="Interface">UserCompact</a>
+						<a href="../interfaces/UserProperties.Compact.html" class="tsd-signature-type" data-tsd-kind="Interface">Compact</a>
 					</li>
 					<li>
-						<span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/UserExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">UserExtended</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="../interfaces/UserProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a>
 					</li>
 					<li>
-						<a href="Base.html" class="tsd-signature-type" data-tsd-kind="Class">Base</a>
+						<a href="BaseCompactable.html" class="tsd-signature-type" data-tsd-kind="Class">BaseCompactable</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Responses.html#User" class="tsd-signature-type" data-tsd-kind="Type alias">User</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/UserProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">User</span>
@@ -124,6 +124,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="User.html#interests" class="tsd-kind-icon">interests</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="User.html#isActive" class="tsd-kind-icon">is<wbr>Active</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="User.html#isBot" class="tsd-kind-icon">is<wbr>Bot</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="User.html#isCompact" class="tsd-kind-icon">is<wbr>Compact</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="User.html#isDeleted" class="tsd-kind-icon">is<wbr>Deleted</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="User.html#isOnline" class="tsd-kind-icon">is<wbr>Online</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="User.html#isSupporter" class="tsd-kind-icon">is<wbr>Supporter</a></li>
@@ -162,10 +163,11 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="User.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="User.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="User.html#mutate" class="tsd-kind-icon">mutate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="User.html#populate" class="tsd-kind-icon">populate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="User.html#populate" class="tsd-kind-icon">populate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="User.html#toString" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="User.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="User.html#eval" class="tsd-kind-icon">eval</a></li>
 							</ul>
 						</section>
@@ -178,12 +180,12 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>User<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>User<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a>, data<span class="tsd-signature-symbol">: </span><a href="../modules/Responses.html#User" class="tsd-signature-type" data-tsd-kind="Type alias">User</a>, isCompact<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#constructor">constructor</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#constructor">constructor</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
@@ -201,12 +203,15 @@
 									</div>
 								</li>
 								<li>
-									<h5>data: <span class="tsd-signature-type">User</span></h5>
+									<h5>data: <a href="../modules/Responses.html#User" class="tsd-signature-type" data-tsd-kind="Type alias">User</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The raw user data</p>
 										</div>
 									</div>
+								</li>
+								<li>
+									<h5>isCompact: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a></h4>
@@ -218,10 +223,10 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="achievements" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> achievements</h3>
-					<div class="tsd-signature tsd-kind-icon">achievements<span class="tsd-signature-symbol">:</span> <a href="../interfaces/Achievement.html" class="tsd-signature-type" data-tsd-kind="Interface">Achievement</a><span class="tsd-signature-symbol">[]</span></div>
+					<h3>achievements</h3>
+					<div class="tsd-signature tsd-kind-icon">achievements<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserProperties.Achievement.html" class="tsd-signature-type" data-tsd-kind="Interface">Achievement</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.achievements</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#achievements">achievements</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -231,10 +236,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="activeTournamentBanner" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> active<wbr>Tournament<wbr>Banner</h3>
-					<div class="tsd-signature tsd-kind-icon">active<wbr>Tournament<wbr>Banner<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/Banner.html" class="tsd-signature-type" data-tsd-kind="Interface">Banner</a></div>
+					<h3>active<wbr>Tournament<wbr>Banner</h3>
+					<div class="tsd-signature tsd-kind-icon">active<wbr>Tournament<wbr>Banner<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/UserProperties.Banner.html" class="tsd-signature-type" data-tsd-kind="Interface">Banner</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.activeTournamentBanner</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#activeTournamentBanner">activeTournamentBanner</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -247,7 +252,7 @@
 					<h3>avatarURL</h3>
 					<div class="tsd-signature tsd-kind-icon">avatarURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#avatarURL">avatarURL</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#avatarURL">avatarURL</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -257,10 +262,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="badges" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> badges</h3>
-					<div class="tsd-signature tsd-kind-icon">badges<span class="tsd-signature-symbol">:</span> <a href="../interfaces/Badge.html" class="tsd-signature-type" data-tsd-kind="Interface">Badge</a><span class="tsd-signature-symbol">[]</span></div>
+					<h3>badges</h3>
+					<div class="tsd-signature tsd-kind-icon">badges<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserProperties.Badge.html" class="tsd-signature-type" data-tsd-kind="Interface">Badge</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.badges</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#badges">badges</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -270,10 +275,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="beatmapsScored" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> beatmaps<wbr>Scored</h3>
+					<h3>beatmaps<wbr>Scored</h3>
 					<div class="tsd-signature tsd-kind-icon">beatmaps<wbr>Scored<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.beatmapsScored</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#beatmapsScored">beatmapsScored</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -284,10 +289,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="beatmapsetCounts" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> beatmapset<wbr>Counts</h3>
+					<h3>beatmapset<wbr>Counts</h3>
 					<div class="tsd-signature tsd-kind-icon">beatmapset<wbr>Counts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>favourites<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>graveyarded<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>loved<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>pending<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>ranked<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.beatmapsetCounts</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#beatmapsetCounts">beatmapsetCounts</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -342,10 +347,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="commentsCount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> comments<wbr>Count</h3>
+					<h3>comments<wbr>Count</h3>
 					<div class="tsd-signature tsd-kind-icon">comments<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.commentsCount</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#commentsCount">commentsCount</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -358,7 +363,7 @@
 					<h3>country<wbr>Code</h3>
 					<div class="tsd-signature tsd-kind-icon">country<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#countryCode">countryCode</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#countryCode">countryCode</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -368,10 +373,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="countryName" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> country<wbr>Name</h3>
+					<h3>country<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">country<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.countryName</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#countryName">countryName</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -381,10 +386,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cover" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cover</h3>
+					<h3>cover</h3>
 					<div class="tsd-signature tsd-kind-icon">cover<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>custom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.cover</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#cover">cover</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -426,7 +431,7 @@
 					<h3>default<wbr>Group</h3>
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Group<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#defaultGroup">defaultGroup</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#defaultGroup">defaultGroup</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -436,10 +441,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="discord" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> discord</h3>
+					<h3>discord</h3>
 					<div class="tsd-signature tsd-kind-icon">discord<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.discord</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#discord">discord</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -449,10 +454,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="followerCount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> follower<wbr>Count</h3>
+					<h3>follower<wbr>Count</h3>
 					<div class="tsd-signature tsd-kind-icon">follower<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.followerCount</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#followerCount">followerCount</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -462,10 +467,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="groups" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> groups</h3>
-					<div class="tsd-signature tsd-kind-icon">groups<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserGroup.html" class="tsd-signature-type" data-tsd-kind="Interface">UserGroup</a><span class="tsd-signature-symbol">[]</span></div>
+					<h3>groups</h3>
+					<div class="tsd-signature tsd-kind-icon">groups<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserProperties.UserGroup.html" class="tsd-signature-type" data-tsd-kind="Interface">UserGroup</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.groups</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#groups">groups</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -475,10 +480,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="hasSupported" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> has<wbr>Supported</h3>
+					<h3>has<wbr>Supported</h3>
 					<div class="tsd-signature tsd-kind-icon">has<wbr>Supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.hasSupported</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#hasSupported">hasSupported</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -491,7 +496,7 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#id">id</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#id">id</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -501,10 +506,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="infringements" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> infringements</h3>
-					<div class="tsd-signature tsd-kind-icon">infringements<span class="tsd-signature-symbol">:</span> <a href="../interfaces/Infringement.html" class="tsd-signature-type" data-tsd-kind="Interface">Infringement</a><span class="tsd-signature-symbol">[]</span></div>
+					<h3>infringements</h3>
+					<div class="tsd-signature tsd-kind-icon">infringements<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserProperties.Infringement.html" class="tsd-signature-type" data-tsd-kind="Interface">Infringement</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.infringements</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#infringements">infringements</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -520,10 +525,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="interests" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> interests</h3>
+					<h3>interests</h3>
 					<div class="tsd-signature tsd-kind-icon">interests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.interests</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#interests">interests</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -536,7 +541,7 @@
 					<h3>is<wbr>Active</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#isActive">isActive</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#isActive">isActive</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -550,11 +555,24 @@
 					<h3>is<wbr>Bot</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Bot<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#isBot">isBot</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#isBot">isBot</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Whether the user is a bot</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="isCompact" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> is<wbr>Compact</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Compact<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#isCompact">isCompact</a></p>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether or not the current data is compact</p>
 						</div>
 					</div>
 				</section>
@@ -563,7 +581,7 @@
 					<h3>is<wbr>Deleted</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Deleted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#isDeleted">isDeleted</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#isDeleted">isDeleted</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -571,7 +589,7 @@
 					<h3>is<wbr>Online</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Online<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#isOnline">isOnline</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#isOnline">isOnline</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -584,7 +602,7 @@
 					<h3>is<wbr>Supporter</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Supporter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#isSupporter">isSupporter</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#isSupporter">isSupporter</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -594,10 +612,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="joinedAt" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> joined<wbr>At</h3>
+					<h3>joined<wbr>At</h3>
 					<div class="tsd-signature tsd-kind-icon">joined<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.joinedAt</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#joinedAt">joinedAt</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -607,10 +625,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="kudosu" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> kudosu</h3>
+					<h3>kudosu</h3>
 					<div class="tsd-signature tsd-kind-icon">kudosu<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>available<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>total<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.kudosu</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#kudosu">kudosu</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -644,7 +662,7 @@
 					<h3>last<wbr>Visit</h3>
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Visit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#lastVisit">lastVisit</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#lastVisit">lastVisit</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -654,10 +672,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="location" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> location</h3>
+					<h3>location</h3>
 					<div class="tsd-signature tsd-kind-icon">location<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.location</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#location">location</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -667,10 +685,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="mappingFollowerCount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mapping<wbr>Follower<wbr>Count</h3>
+					<h3>mapping<wbr>Follower<wbr>Count</h3>
 					<div class="tsd-signature tsd-kind-icon">mapping<wbr>Follower<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.mappingFollowerCount</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#mappingFollowerCount">mappingFollowerCount</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -680,10 +698,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="maxBlocks" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max<wbr>Blocks</h3>
+					<h3>max<wbr>Blocks</h3>
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Blocks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.maxBlocks</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#maxBlocks">maxBlocks</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -693,10 +711,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="maxFriends" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max<wbr>Friends</h3>
+					<h3>max<wbr>Friends</h3>
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Friends<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.maxFriends</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#maxFriends">maxFriends</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -706,10 +724,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="monthlyPlaycounts" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> monthly<wbr>Playcounts</h3>
-					<div class="tsd-signature tsd-kind-icon">monthly<wbr>Playcounts<span class="tsd-signature-symbol">:</span> <a href="../interfaces/Count.html" class="tsd-signature-type" data-tsd-kind="Interface">Count</a><span class="tsd-signature-symbol">[]</span></div>
+					<h3>monthly<wbr>Playcounts</h3>
+					<div class="tsd-signature tsd-kind-icon">monthly<wbr>Playcounts<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserProperties.Count.html" class="tsd-signature-type" data-tsd-kind="Interface">Count</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.monthlyPlaycounts</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#monthlyPlaycounts">monthlyPlaycounts</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -719,10 +737,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="occupation" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> occupation</h3>
+					<h3>occupation</h3>
 					<div class="tsd-signature tsd-kind-icon">occupation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.occupation</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#occupation">occupation</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -732,10 +750,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="page" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> page</h3>
+					<h3>page</h3>
 					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>html<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>raw<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.page</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#page">page</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -771,7 +789,7 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> parent</h3>
 					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#parent">parent</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#parent">parent</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -781,10 +799,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="playmode" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> playmode</h3>
+					<h3>playmode</h3>
 					<div class="tsd-signature tsd-kind-icon">playmode<span class="tsd-signature-symbol">:</span> <a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.playmode</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#playmode">playmode</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -794,10 +812,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="playstyle" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> playstyle</h3>
+					<h3>playstyle</h3>
 					<div class="tsd-signature tsd-kind-icon">playstyle<span class="tsd-signature-symbol">:</span> <a href="../modules.html#Playstyle" class="tsd-signature-type" data-tsd-kind="Variable">Playstyle</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.playstyle</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#playstyle">playstyle</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -810,7 +828,7 @@
 					<h3>pm<wbr>Friends<wbr>Only</h3>
 					<div class="tsd-signature tsd-kind-icon">pm<wbr>Friends<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#pmFriendsOnly">pmFriendsOnly</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#pmFriendsOnly">pmFriendsOnly</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -820,10 +838,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="postCount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> post<wbr>Count</h3>
+					<h3>post<wbr>Count</h3>
 					<div class="tsd-signature tsd-kind-icon">post<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.postCount</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#postCount">postCount</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -833,10 +851,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="previousUsernames" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> previous<wbr>Usernames</h3>
+					<h3>previous<wbr>Usernames</h3>
 					<div class="tsd-signature tsd-kind-icon">previous<wbr>Usernames<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.previousUsernames</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#previousUsernames">previousUsernames</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -849,7 +867,7 @@
 					<h3>profile<wbr>Colour</h3>
 					<div class="tsd-signature tsd-kind-icon">profile<wbr>Colour<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#profileColour">profileColour</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#profileColour">profileColour</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -860,10 +878,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="profileOrder" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> profile<wbr>Order</h3>
+					<h3>profile<wbr>Order</h3>
 					<div class="tsd-signature tsd-kind-icon">profile<wbr>Order<span class="tsd-signature-symbol">:</span> <a href="../modules.html#ProfileSection" class="tsd-signature-type" data-tsd-kind="Variable">ProfileSection</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.profileOrder</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#profileOrder">profileOrder</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -873,10 +891,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="rankHistory" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> rank<wbr>History</h3>
+					<h3>rank<wbr>History</h3>
 					<div class="tsd-signature tsd-kind-icon">rank<wbr>History<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.rankHistory</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#rankHistory">rankHistory</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -887,9 +905,9 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="raw-1" class="tsd-anchor"></a>
 					<h3>raw</h3>
-					<div class="tsd-signature tsd-kind-icon">raw<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span></div>
+					<div class="tsd-signature tsd-kind-icon">raw<span class="tsd-signature-symbol">:</span> <a href="../modules/Responses.html#User" class="tsd-signature-type" data-tsd-kind="Type alias">User</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#raw">raw</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#raw">raw</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -899,10 +917,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="replaysWatchedCounts" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> replays<wbr>Watched<wbr>Counts</h3>
-					<div class="tsd-signature tsd-kind-icon">replays<wbr>Watched<wbr>Counts<span class="tsd-signature-symbol">:</span> <a href="../interfaces/Count.html" class="tsd-signature-type" data-tsd-kind="Interface">Count</a><span class="tsd-signature-symbol">[]</span></div>
+					<h3>replays<wbr>Watched<wbr>Counts</h3>
+					<div class="tsd-signature tsd-kind-icon">replays<wbr>Watched<wbr>Counts<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserProperties.Count.html" class="tsd-signature-type" data-tsd-kind="Interface">Count</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.replaysWatchedCounts</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#replaysWatchedCounts">replaysWatchedCounts</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -912,10 +930,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="scoreCounts" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> score<wbr>Counts</h3>
+					<h3>score<wbr>Counts</h3>
 					<div class="tsd-signature tsd-kind-icon">score<wbr>Counts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>best<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>recent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.scoreCounts</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#scoreCounts">scoreCounts</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -954,10 +972,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="statistics" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> statistics</h3>
-					<div class="tsd-signature tsd-kind-icon">statistics<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserStatistics.html" class="tsd-signature-type" data-tsd-kind="Interface">UserStatistics</a></div>
+					<h3>statistics</h3>
+					<div class="tsd-signature tsd-kind-icon">statistics<span class="tsd-signature-symbol">:</span> <a href="../interfaces/UserProperties.UserStatistics.html" class="tsd-signature-type" data-tsd-kind="Interface">UserStatistics</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.statistics</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#statistics">statistics</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -968,10 +986,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="supportLevel" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> support<wbr>Level</h3>
+					<h3>support<wbr>Level</h3>
 					<div class="tsd-signature tsd-kind-icon">support<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.supportLevel</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#supportLevel">supportLevel</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -981,10 +999,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="title" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> title</h3>
+					<h3>title</h3>
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.title</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#title">title</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -994,10 +1012,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="titleURL" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> titleURL</h3>
+					<h3>titleURL</h3>
 					<div class="tsd-signature tsd-kind-icon">titleURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.titleURL</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#titleURL">titleURL</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -1007,10 +1025,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="twitter" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> twitter</h3>
+					<h3>twitter</h3>
 					<div class="tsd-signature tsd-kind-icon">twitter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.twitter</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#twitter">twitter</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -1023,7 +1041,7 @@
 					<h3>updated<wbr>At</h3>
 					<div class="tsd-signature tsd-kind-icon">updated<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#updatedAt">updatedAt</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#updatedAt">updatedAt</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -1036,7 +1054,7 @@
 					<h3>username</h3>
 					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/UserCompact.html">UserCompact</a>.<a href="../interfaces/UserCompact.html#username">username</a></p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Compact.html">Compact</a>.<a href="../interfaces/UserProperties.Compact.html#username">username</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -1046,10 +1064,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="website" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> website</h3>
+					<h3>website</h3>
 					<div class="tsd-signature tsd-kind-icon">website<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.website</p>
+						<p>Inherited from <a href="../interfaces/UserProperties.Extended.html">Extended</a>.<a href="../interfaces/UserProperties.Extended.html#website">website</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -1060,23 +1078,24 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="isPopulated" class="tsd-anchor"></a>
 					<h3>is<wbr>Populated</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Populated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/UserExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">UserExtended</a></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Populated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/UserProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#isPopulated">isPopulated</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Whether this user class is fully populated (to populate, call <a href="User.html#populate">populate</a>)</p>
+									<p>Whether this structure is populated (to populate, call <a href="User.html#update">update</a>)</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/UserExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">UserExtended</a></h4>
-							<p>A boolean type guard which can mark all optional properties as present</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/UserProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a></h4>
+							<p>A boolean type guard which can mark optional properties as present</p>
 						</li>
 					</ul>
 				</section>
@@ -1089,42 +1108,35 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#mutate">mutate</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#mutate">mutate</a></p>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Mutable</span><span class="tsd-signature-symbol">&lt;</span><a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="populate" class="tsd-anchor"></a>
-					<h3>populate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">populate<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">?: </span><a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> populate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">populate<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../modules/Responses.html#User" class="tsd-signature-type" data-tsd-kind="Type alias">User</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#populate">populate</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>If this user was created given UserCompact, this method will populate
-									itself with results similar to <a href="Client.html#getUser">Client.getUser</a></p>
+									<p>Populates the structure with new data</p>
 								</div>
-								<p>If this user was already populated, this method would simply do nothing.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mode: <a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A specific gamemode to request the user&#39;s <a href="User.html#statistics">statistics</a> for</p>
-									</div>
+									<h5>data: <a href="../modules/Responses.html#User" class="tsd-signature-type" data-tsd-kind="Type alias">User</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Itself with all optional fields</p>
-							<p>If using TypeScript, also run <a href="User.html#isPopulated">isPopulated</a> afterwards to type guard and have
-							all optional properties be known as present</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1137,9 +1149,38 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#toString">toString</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#toString">toString</a></p>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="update" class="tsd-anchor"></a>
+					<h3>update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>mode<span class="tsd-signature-symbol">?: </span><a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#update">update</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates the user with new data</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mode: <a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A specific gamemode to request the user&#39;s <a href="User.html#statistics">statistics</a> for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1246,6 +1287,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="User.html#isBot" class="tsd-kind-icon">is<wbr>Bot</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="User.html#isCompact" class="tsd-kind-icon">is<wbr>Compact</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="User.html#isDeleted" class="tsd-kind-icon">is<wbr>Deleted</a>
 							</li>
@@ -1345,17 +1389,20 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="User.html#website" class="tsd-kind-icon">website</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="User.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="User.html#mutate" class="tsd-kind-icon">mutate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="User.html#populate" class="tsd-kind-icon">populate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="User.html#toString" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="User.html#update" class="tsd-kind-icon">update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="User.html#eval" class="tsd-kind-icon">eval</a>

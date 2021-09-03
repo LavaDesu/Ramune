@@ -69,13 +69,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="../interfaces/BeatmapCompact.html" class="tsd-signature-type" data-tsd-kind="Interface">BeatmapCompact</a>
+						<a href="../interfaces/BeatmapProperties.Compact.html" class="tsd-signature-type" data-tsd-kind="Interface">Compact</a>
 					</li>
 					<li>
-						<span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/BeatmapExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">BeatmapExtended</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="../interfaces/BeatmapProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a>
 					</li>
 					<li>
-						<a href="Base.html" class="tsd-signature-type" data-tsd-kind="Class">Base</a>
+						<a href="BaseCompactable.html" class="tsd-signature-type" data-tsd-kind="Class">BaseCompactable</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Responses.html#Beatmap" class="tsd-signature-type" data-tsd-kind="Type alias">Beatmap</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/BeatmapProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Beatmap</span>
@@ -100,7 +100,6 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#accuracy" class="tsd-kind-icon">accuracy</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#ar" class="tsd-kind-icon">ar</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Beatmap.html#beatmapset" class="tsd-kind-icon">beatmapset</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#beatmapsetID" class="tsd-kind-icon">beatmapsetID</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#bpm" class="tsd-kind-icon">bpm</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#checksum" class="tsd-kind-icon">checksum</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#cs" class="tsd-kind-icon">cs</a></li>
@@ -109,6 +108,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#failtimes" class="tsd-kind-icon">failtimes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#hitLength" class="tsd-kind-icon">hit<wbr>Length</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="Beatmap.html#isCompact" class="tsd-kind-icon">is<wbr>Compact</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#isConvert" class="tsd-kind-icon">is<wbr>Convert</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#isScorable" class="tsd-kind-icon">is<wbr>Scorable</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#lastUpdated" class="tsd-kind-icon">last<wbr>Updated</a></li>
@@ -130,10 +130,11 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Beatmap.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="Beatmap.html#mutate" class="tsd-kind-icon">mutate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Beatmap.html#populate" class="tsd-kind-icon">populate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="Beatmap.html#populate" class="tsd-kind-icon">populate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#toString" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="Beatmap.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="Beatmap.html#eval" class="tsd-kind-icon">eval</a></li>
 							</ul>
 						</section>
@@ -146,12 +147,12 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Beatmap<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Beatmap</span>, parentSet<span class="tsd-signature-symbol">?: </span><a href="Beatmapset.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmapset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Beatmap.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmap</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Beatmap<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a>, data<span class="tsd-signature-symbol">: </span><a href="../modules/Responses.html#Beatmap" class="tsd-signature-type" data-tsd-kind="Type alias">Beatmap</a>, isCompact<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, parentSet<span class="tsd-signature-symbol">?: </span><a href="Beatmapset.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmapset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Beatmap.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#constructor">constructor</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#constructor">constructor</a></p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -159,7 +160,10 @@
 									<h5>parent: <a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a></h5>
 								</li>
 								<li>
-									<h5>data: <span class="tsd-signature-type">Beatmap</span></h5>
+									<h5>data: <a href="../modules/Responses.html#Beatmap" class="tsd-signature-type" data-tsd-kind="Type alias">Beatmap</a></h5>
+								</li>
+								<li>
+									<h5>isCompact: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parentSet: <a href="Beatmapset.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmapset</a></h5>
@@ -174,18 +178,18 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="accuracy" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> accuracy</h3>
+					<h3>accuracy</h3>
 					<div class="tsd-signature tsd-kind-icon">accuracy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.accuracy</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#accuracy">accuracy</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="ar" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ar</h3>
+					<h3>ar</h3>
 					<div class="tsd-signature tsd-kind-icon">ar<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.ar</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#ar">ar</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
@@ -196,19 +200,11 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="beatmapsetID" class="tsd-anchor"></a>
-					<h3>beatmapsetID</h3>
-					<div class="tsd-signature tsd-kind-icon">beatmapsetID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#beatmapsetID">beatmapsetID</a></p>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="bpm" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> bpm</h3>
+					<h3>bpm</h3>
 					<div class="tsd-signature tsd-kind-icon">bpm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.bpm</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#bpm">bpm</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -216,31 +212,31 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> checksum</h3>
 					<div class="tsd-signature tsd-kind-icon">checksum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#checksum">checksum</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#checksum">checksum</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cs" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cs</h3>
+					<h3>cs</h3>
 					<div class="tsd-signature tsd-kind-icon">cs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.cs</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#cs">cs</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="deletedAt" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> deleted<wbr>At</h3>
+					<h3>deleted<wbr>At</h3>
 					<div class="tsd-signature tsd-kind-icon">deleted<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.deletedAt</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#deletedAt">deletedAt</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="drain" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> drain</h3>
+					<h3>drain</h3>
 					<div class="tsd-signature tsd-kind-icon">drain<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.drain</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#drain">drain</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -248,7 +244,7 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> failtimes</h3>
 					<div class="tsd-signature tsd-kind-icon">failtimes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>exit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>fail<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#failtimes">failtimes</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#failtimes">failtimes</a></p>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
@@ -264,10 +260,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="hitLength" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hit<wbr>Length</h3>
+					<h3>hit<wbr>Length</h3>
 					<div class="tsd-signature tsd-kind-icon">hit<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.hitLength</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#hitLength">hitLength</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -275,7 +271,7 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#id">id</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#id">id</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -283,28 +279,41 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="isCompact" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> is<wbr>Compact</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Compact<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#isCompact">isCompact</a></p>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether or not the current data is compact</p>
+						</div>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="isConvert" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Convert</h3>
+					<h3>is<wbr>Convert</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Convert<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.isConvert</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#isConvert">isConvert</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="isScorable" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Scorable</h3>
+					<h3>is<wbr>Scorable</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Scorable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.isScorable</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#isScorable">isScorable</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="lastUpdated" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> last<wbr>Updated</h3>
+					<h3>last<wbr>Updated</h3>
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Updated<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.lastUpdated</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#lastUpdated">lastUpdated</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -312,7 +321,7 @@
 					<h3>length</h3>
 					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#length">length</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#length">length</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -320,7 +329,7 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max<wbr>Combo</h3>
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Combo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#maxCombo">maxCombo</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#maxCombo">maxCombo</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -328,15 +337,15 @@
 					<h3>mode</h3>
 					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <a href="../modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#mode">mode</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#mode">mode</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="objectCounts" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> object<wbr>Counts</h3>
+					<h3>object<wbr>Counts</h3>
 					<div class="tsd-signature tsd-kind-icon">object<wbr>Counts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>circles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>sliders<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>spinners<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.objectCounts</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#objectCounts">objectCounts</a></p>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
@@ -358,7 +367,7 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> parent</h3>
 					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#parent">parent</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#parent">parent</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -368,26 +377,26 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="passcount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> passcount</h3>
+					<h3>passcount</h3>
 					<div class="tsd-signature tsd-kind-icon">passcount<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.passcount</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#passcount">passcount</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="playcount" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> playcount</h3>
+					<h3>playcount</h3>
 					<div class="tsd-signature tsd-kind-icon">playcount<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.playcount</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#playcount">playcount</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="raw" class="tsd-anchor"></a>
 					<h3>raw</h3>
-					<div class="tsd-signature tsd-kind-icon">raw<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span></div>
+					<div class="tsd-signature tsd-kind-icon">raw<span class="tsd-signature-symbol">:</span> <a href="../modules/Responses.html#Beatmap" class="tsd-signature-type" data-tsd-kind="Type alias">Beatmap</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#raw">raw</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#raw">raw</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -400,7 +409,7 @@
 					<h3>star<wbr>Rating</h3>
 					<div class="tsd-signature tsd-kind-icon">star<wbr>Rating<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#starRating">starRating</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#starRating">starRating</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -408,7 +417,7 @@
 					<h3>status</h3>
 					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="../modules.html#BeatmapsetOnlineStatus" class="tsd-signature-type" data-tsd-kind="Variable">BeatmapsetOnlineStatus</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#status">status</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#status">status</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -416,7 +425,7 @@
 					<h3>updated<wbr>At</h3>
 					<div class="tsd-signature tsd-kind-icon">updated<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#updatedAt">updatedAt</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#updatedAt">updatedAt</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -426,10 +435,10 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="url" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> url</h3>
+					<h3>url</h3>
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Partial.url</p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Extended.html">Extended</a>.<a href="../interfaces/BeatmapProperties.Extended.html#url">url</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -437,29 +446,30 @@
 					<h3>version</h3>
 					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/BeatmapCompact.html">BeatmapCompact</a>.<a href="../interfaces/BeatmapCompact.html#version">version</a></p>
+						<p>Inherited from <a href="../interfaces/BeatmapProperties.Compact.html">Compact</a>.<a href="../interfaces/BeatmapProperties.Compact.html#version">version</a></p>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="isPopulated" class="tsd-anchor"></a>
 					<h3>is<wbr>Populated</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Populated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/BeatmapExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">BeatmapExtended</a></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Populated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/BeatmapProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#isPopulated">isPopulated</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Whether this beatmap is fully populated (to populate, call <a href="Beatmap.html#populate">populate</a>)</p>
+									<p>Whether this structure is populated (to populate, call <a href="Beatmap.html#update">update</a>)</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/BeatmapExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">BeatmapExtended</a></h4>
-							<p>A boolean type guard which can mark all optional properties as present</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/BeatmapProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a></h4>
+							<p>A boolean type guard which can mark optional properties as present</p>
 						</li>
 					</ul>
 				</section>
@@ -472,33 +482,35 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#mutate">mutate</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#mutate">mutate</a></p>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Mutable</span><span class="tsd-signature-symbol">&lt;</span><a href="Beatmap.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmap</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="populate" class="tsd-anchor"></a>
-					<h3>populate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">populate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Beatmap.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmap</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> populate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">populate<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../modules/Responses.html#Beatmap" class="tsd-signature-type" data-tsd-kind="Type alias">Beatmap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#populate">populate</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>If this beatmap was created given BeatmapCompact, this method will populate
-									itself with results similar to <a href="Client.html#getBeatmap">Client.getBeatmap</a></p>
+									<p>Populates the structure with new data</p>
 								</div>
-								<p>If this beatmap was already populated, this method would simply do nothing.</p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Beatmap.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmap</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Itself with all optional fields</p>
-							<p>If using TypeScript, also run <a href="Beatmap.html#isPopulated">isPopulated</a> afterwards to type guard and have
-							all optional properties be known as present</p>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="../modules/Responses.html#Beatmap" class="tsd-signature-type" data-tsd-kind="Type alias">Beatmap</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -511,9 +523,29 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#toString">toString</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#toString">toString</a></p>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="update" class="tsd-anchor"></a>
+					<h3>update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Beatmap.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmap</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#update">update</a></p>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates the structure with new data</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Beatmap.html" class="tsd-signature-type" data-tsd-kind="Class">Beatmap</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -570,9 +602,6 @@
 								<a href="Beatmap.html#beatmapset" class="tsd-kind-icon">beatmapset</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="Beatmap.html#beatmapsetID" class="tsd-kind-icon">beatmapsetID</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Beatmap.html#bpm" class="tsd-kind-icon">bpm</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -595,6 +624,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Beatmap.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="Beatmap.html#isCompact" class="tsd-kind-icon">is<wbr>Compact</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Beatmap.html#isConvert" class="tsd-kind-icon">is<wbr>Convert</a>
@@ -644,17 +676,20 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Beatmap.html#version" class="tsd-kind-icon">version</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="Beatmap.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="Beatmap.html#mutate" class="tsd-kind-icon">mutate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="Beatmap.html#populate" class="tsd-kind-icon">populate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="Beatmap.html#toString" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="Beatmap.html#update" class="tsd-kind-icon">update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="Beatmap.html#eval" class="tsd-kind-icon">eval</a>

@@ -65,17 +65,24 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A legacy osu multiplayer lobby</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="../interfaces/MatchCompact.html" class="tsd-signature-type" data-tsd-kind="Interface">MatchCompact</a>
+						<a href="../interfaces/MatchProperties.Compact.html" class="tsd-signature-type" data-tsd-kind="Interface">Compact</a>
 					</li>
 					<li>
-						<a href="../interfaces/MatchExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">MatchExtended</a>
+						<a href="../interfaces/MatchProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a>
 					</li>
 					<li>
-						<a href="Base.html" class="tsd-signature-type" data-tsd-kind="Class">Base</a>
+						<a href="BaseCompactable.html" class="tsd-signature-type" data-tsd-kind="Class">BaseCompactable</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Responses.html#Match" class="tsd-signature-type" data-tsd-kind="Type alias">Match</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/MatchProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Match</span>
@@ -101,6 +108,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#endDate" class="tsd-kind-icon">end<wbr>Date</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#events" class="tsd-kind-icon">events</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="Match.html#isCompact" class="tsd-kind-icon">is<wbr>Compact</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#parent" class="tsd-kind-icon">parent</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#raw" class="tsd-kind-icon">raw</a></li>
@@ -112,11 +120,11 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Match.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="Match.html#mutate" class="tsd-kind-icon">mutate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Match.html#populate" class="tsd-kind-icon">populate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="Match.html#populate" class="tsd-kind-icon">populate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#toString" class="tsd-kind-icon">to<wbr>String</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Match.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="Match.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="Match.html#eval" class="tsd-kind-icon">eval</a></li>
 							</ul>
 						</section>
@@ -129,12 +137,12 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Match<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a>, match<span class="tsd-signature-symbol">: </span><a href="../modules.html#MatchResponse" class="tsd-signature-type" data-tsd-kind="Type alias">MatchResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Match<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a>, data<span class="tsd-signature-symbol">: </span><a href="../modules/Responses.html#Match" class="tsd-signature-type" data-tsd-kind="Type alias">Match</a>, isCompact<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#constructor">constructor</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#constructor">constructor</a></p>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -142,7 +150,10 @@
 									<h5>parent: <a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a></h5>
 								</li>
 								<li>
-									<h5>match: <a href="../modules.html#MatchResponse" class="tsd-signature-type" data-tsd-kind="Type alias">MatchResponse</a></h5>
+									<h5>data: <a href="../modules/Responses.html#Match" class="tsd-signature-type" data-tsd-kind="Type alias">Match</a></h5>
+								</li>
+								<li>
+									<h5>isCompact: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a></h4>
@@ -157,7 +168,7 @@
 					<h3>current<wbr>GameID</h3>
 					<div class="tsd-signature tsd-kind-icon">current<wbr>GameID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/MatchExtended.html">MatchExtended</a>.<a href="../interfaces/MatchExtended.html#currentGameID">currentGameID</a></p>
+						<p>Inherited from <a href="../interfaces/MatchProperties.Extended.html">Extended</a>.<a href="../interfaces/MatchProperties.Extended.html#currentGameID">currentGameID</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -165,15 +176,15 @@
 					<h3>end<wbr>Date</h3>
 					<div class="tsd-signature tsd-kind-icon">end<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/MatchCompact.html">MatchCompact</a>.<a href="../interfaces/MatchCompact.html#endDate">endDate</a></p>
+						<p>Inherited from <a href="../interfaces/MatchProperties.Compact.html">Compact</a>.<a href="../interfaces/MatchProperties.Compact.html#endDate">endDate</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="events" class="tsd-anchor"></a>
 					<h3>events</h3>
-					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <a href="../interfaces/MatchEvent.html" class="tsd-signature-type" data-tsd-kind="Interface">MatchEvent</a><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <a href="../interfaces/Responses.MatchEvent.html" class="tsd-signature-type" data-tsd-kind="Interface">MatchEvent</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/MatchExtended.html">MatchExtended</a>.<a href="../interfaces/MatchExtended.html#events">events</a></p>
+						<p>Inherited from <a href="../interfaces/MatchProperties.Extended.html">Extended</a>.<a href="../interfaces/MatchProperties.Extended.html#events">events</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -181,11 +192,24 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#id">id</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#id">id</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The object ID</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="isCompact" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> is<wbr>Compact</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Compact<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#isCompact">isCompact</a></p>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether or not the current data is compact</p>
 						</div>
 					</div>
 				</section>
@@ -194,7 +218,7 @@
 					<h3>name</h3>
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/MatchCompact.html">MatchCompact</a>.<a href="../interfaces/MatchCompact.html#name">name</a></p>
+						<p>Inherited from <a href="../interfaces/MatchProperties.Compact.html">Compact</a>.<a href="../interfaces/MatchProperties.Compact.html#name">name</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -202,7 +226,7 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> parent</h3>
 					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="Client.html" class="tsd-signature-type" data-tsd-kind="Class">Client</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#parent">parent</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#parent">parent</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -213,9 +237,9 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="raw" class="tsd-anchor"></a>
 					<h3>raw</h3>
-					<div class="tsd-signature tsd-kind-icon">raw<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">unknown</span></div>
+					<div class="tsd-signature tsd-kind-icon">raw<span class="tsd-signature-symbol">:</span> <a href="../modules/Responses.html#Match" class="tsd-signature-type" data-tsd-kind="Type alias">Match</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#raw">raw</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#raw">raw</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -228,7 +252,7 @@
 					<h3>start<wbr>Date</h3>
 					<div class="tsd-signature tsd-kind-icon">start<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/MatchCompact.html">MatchCompact</a>.<a href="../interfaces/MatchCompact.html#startDate">startDate</a></p>
+						<p>Inherited from <a href="../interfaces/MatchProperties.Compact.html">Compact</a>.<a href="../interfaces/MatchProperties.Compact.html#startDate">startDate</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -236,7 +260,7 @@
 					<h3>updated<wbr>At</h3>
 					<div class="tsd-signature tsd-kind-icon">updated<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#updatedAt">updatedAt</a></p>
+						<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#updatedAt">updatedAt</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
@@ -247,31 +271,32 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="users" class="tsd-anchor"></a>
 					<h3>users</h3>
-					<div class="tsd-signature tsd-kind-icon">users<span class="tsd-signature-symbol">:</span> <a href="User.html" class="tsd-signature-type" data-tsd-kind="Class">User</a><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">users<span class="tsd-signature-symbol">:</span> <a href="../modules.html#UserCompact" class="tsd-signature-type" data-tsd-kind="Type alias">UserCompact</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="../interfaces/MatchExtended.html">MatchExtended</a>.<a href="../interfaces/MatchExtended.html#users">users</a></p>
+						<p>Inherited from <a href="../interfaces/MatchProperties.Extended.html">Extended</a>.<a href="../interfaces/MatchProperties.Extended.html#users">users</a></p>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="isPopulated" class="tsd-anchor"></a>
 					<h3>is<wbr>Populated</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Populated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/MatchExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">MatchExtended</a></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Populated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/MatchProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#isPopulated">isPopulated</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Whether this match class is fully populated (to populate, call <a href="Match.html#populate">populate</a>)</p>
+									<p>Whether this structure is populated (to populate, call <a href="Match.html#update">update</a>)</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/MatchExtended.html" class="tsd-signature-type" data-tsd-kind="Interface">MatchExtended</a></h4>
-							<p>A boolean type guard which can mark all optional properties as present</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/MatchProperties.Extended.html" class="tsd-signature-type" data-tsd-kind="Interface">Extended</a></h4>
+							<p>A boolean type guard which can mark optional properties as present</p>
 						</li>
 					</ul>
 				</section>
@@ -284,33 +309,35 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#mutate">mutate</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#mutate">mutate</a></p>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Mutable</span><span class="tsd-signature-symbol">&lt;</span><a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="populate" class="tsd-anchor"></a>
-					<h3>populate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">populate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> populate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">populate<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../modules/Responses.html#Match" class="tsd-signature-type" data-tsd-kind="Type alias">Match</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#populate">populate</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>If this user was created given MatchCompact, this method will populate
-									itself with results similar to <a href="Client.html#getMatch">Client.getMatch</a></p>
+									<p>Populates the structure with new data</p>
 								</div>
-								<p>If this match was already populated, this method would simply do nothing.</p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Itself with all optional fields</p>
-							<p>If using TypeScript, also run <a href="Match.html#isPopulated">isPopulated</a> afterwards to type guard and have
-							all optional properties be known as present</p>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <a href="../modules/Responses.html#Match" class="tsd-signature-type" data-tsd-kind="Type alias">Match</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -323,25 +350,26 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="Base.html">Base</a>.<a href="Base.html#toString">toString</a></p>
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#toString">toString</a></p>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="update" class="tsd-anchor"></a>
 					<h3>update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="BaseCompactable.html">BaseCompactable</a>.<a href="BaseCompactable.html#update">update</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Refreshes the match with new data in-place from <a href="Client.html#getMatch">Client.getMatch</a></p>
+									<p>Updates the structure with new data</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="Match.html" class="tsd-signature-type" data-tsd-kind="Class">Match</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -403,6 +431,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Match.html#id" class="tsd-kind-icon">id</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="Match.html#isCompact" class="tsd-kind-icon">is<wbr>Compact</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Match.html#name" class="tsd-kind-icon">name</a>
 							</li>
@@ -421,19 +452,19 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="Match.html#users" class="tsd-kind-icon">users</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="Match.html#isPopulated" class="tsd-kind-icon">is<wbr>Populated</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="Match.html#mutate" class="tsd-kind-icon">mutate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="Match.html#populate" class="tsd-kind-icon">populate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="Match.html#toString" class="tsd-kind-icon">to<wbr>String</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="Match.html#update" class="tsd-kind-icon">update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
