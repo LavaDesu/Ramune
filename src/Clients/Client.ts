@@ -16,14 +16,16 @@ import {
     BeatmapScores as BeatmapScoresResponse,
     BeatmapUserScore as BeatmapUserScoreResponse,
     Beatmapset as BeatmapsetResponse,
+    Match as MatchResponse,
     Score as ScoreResponse,
-    User$getUser as UserResponse
+    User as UserResponse
 } from "../Responses";
 import { MissingTokenError } from "../Errors";
-import { Beatmap, Beatmapset } from "../Structures/Beatmap";
+import { Beatmap } from "../Structures/Beatmap";
+import { Beatmapset } from "../Structures/Beatmapset";
+import { Match } from "../Structures/Match";
 import { User } from "../Structures/User";
 import { IndexedCursor, MatchCursor } from "../Util/Cursor";
-import { Match, MatchResponse } from "../Structures/Match";
 
 declare function tokenUpdate(token: Token): void;
 

@@ -1,6 +1,7 @@
 import { BaseRequestObject, Client } from "../Clients/Client";
 import { Endpoints } from "../Endpoints";
-import { Match, MatchCompactResponse } from "../Structures/Match";
+import { MatchCompact as MatchCompactResponse } from "../Responses";
+import { Match } from "../Structures/Match";
 
 // TODO: this needs a dedicated documentation page
 /**
@@ -188,7 +189,7 @@ export class MatchCursor extends Cursor<Match> {
 
         interface MatchResponse {
             cursor: { match_id: number };
-            matches: MatchCompactResponse[];
+            matches: MatchCompactResponse["match"][];
             params: Record<string, string>;
         }
         const response = await this.client.internalRequest<MatchResponse>({
@@ -205,7 +206,7 @@ export class MatchCursor extends Cursor<Match> {
         if (response.matches && response.matches.length < Math.min(count, 100))
             this.state.done = true;
 
-        const matches = response.matches.map(match => new Match(this.client, match));
+        const matches = response.matches.map(match => new Match(this.client, { match }));
 
         return {
             value: matches,

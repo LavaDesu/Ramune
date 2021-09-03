@@ -1,5 +1,6 @@
 import { Gamemode, Playstyle, ProfileSection, InfringementType } from "../Enums";
 
+export type User = UserCompact | UserExtended;
 export interface UserCompact {
     id: number;
     username: string;
@@ -42,9 +43,7 @@ export interface UserExtended extends UserCompact {
     title_url: string | null;
     twitter: string | null;
     website: string | null;
-}
 
-export interface User$getUser extends UserExtended {
     account_history: AccountHistory[];
     active_tournament_banner: Banner | null;
     badges: Badge[];
@@ -77,7 +76,7 @@ export interface User$getUser extends UserExtended {
 
     /** @deprecated use rank_history */
     rankHistory: RankHistory;
-};
+}
 
 export interface AccountHistory {
     description: string | null;
@@ -197,5 +196,3 @@ export type Rank = {
     country: number | null;
     global: number | null;
 };
-
-export type User = UserCompact | UserExtended | User$getUser;

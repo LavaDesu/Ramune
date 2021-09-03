@@ -1,112 +1,61 @@
 import { Client } from "../Clients/Client";
-import { UserCompact } from "../Responses/User";
+import { MatchEvent, Match as MatchResponse } from "../Responses/Match";
 import { CanBeLazy } from "../Util/Lazy";
-import { Base } from "./Base";
-import { User } from "./User";
+import { BaseCompactable } from "./Base";
+import { User, UserCompact } from "./User";
 
-export interface MatchCompact {
-    readonly id: number;
-    name: string;
-    startDate: Date;
-    endDate: Date | null;
-}
-export interface MatchExtended {
-    currentGameID: number;
-    events: MatchEvent[];
-    users: User[];
-}
-export interface Match extends MatchCompact, MatchExtended {}
-@CanBeLazy()
+export interface Match extends MatchProperties.Compact, MatchProperties.Extended {}
 /**
  * A legacy osu multiplayer lobby
  */
-export class Match extends Base {
-    constructor(parent: Client, match: MatchResponse) {
-        super(parent, match.match.id, match);
+@CanBeLazy()
+export class Match extends BaseCompactable<MatchResponse, MatchProperties.Extended> {
+    constructor(parent: Client, data: MatchResponse, isCompact: boolean = true) {
+        super(parent, data.match.id, data, isCompact);
 
-        this.populateCompact(match);
-
-        if ("current_game_id" in match)
-            this.populateExtended(match);
+        this.populate(data);
     }
 
     public static async eval(client: Client, id: number) {
         return await client.getMatch(id);
     }
 
-    /**
-     * Whether this match class is fully populated (to populate, call {@link populate})
-     *
-     * @returns A boolean type guard which can mark all optional properties as present
-     */
-    public isPopulated(): this is MatchExtended {
-        return this.currentGameID !== undefined;
-    }
-
-    /**
-     * If this user was created given MatchCompact, this method will populate
-     * itself with results similar to {@link Client.getMatch}
-     *
-     * If this match was already populated, this method would simply do nothing.
-     *
-     * @returns
-     * Itself with all optional fields
-     *
-     * If using TypeScript, also run {@link isPopulated} afterwards to type guard and have
-     * all optional properties be known as present
-     */
-    public async populate(): Promise<this> {
-        const newData = await this.parent.getMatch(this.id.toString());
-        this.raw = newData.raw;
-        this.populateExtended(newData.raw as MatchExtendedResponse);
-
-        return this;
-    }
-
-    private populateCompact(match: MatchCompactResponse) {
-        this.name = match.match.name;
-        this.startDate = new Date(match.match.start_time);
-        this.endDate = match.match.end_time ? new Date(match.match.end_time) : null;
-    }
-
-    private populateExtended(match: MatchExtendedResponse) {
-        this.currentGameID = match.current_game_id;
-        this.events = match.events;
-        this.users = match.users.map(user => new User(this.parent, user));
-    }
-
-    /**
-     * Refreshes the match with new data in-place from {@link Client.getMatch}
-     */
     public async update(): Promise<this> {
         const newData = await this.parent.getMatch(this.id.toString());
-        const raw = this.raw = newData.raw as MatchExtendedResponse;
-        this.populateCompact(raw);
-        this.populateExtended(raw);
+        this.raw = newData.raw;
+        this.populate(newData.raw);
 
         return this;
     }
+
+    protected populate(data: MatchResponse) {
+        this.isCompact = true;
+        this.raw = data;
+
+        this.name = data.match.name;
+        this.startDate = new Date(data.match.start_time);
+        this.endDate = data.match.end_time ? new Date(data.match.end_time) : null;
+
+        if (!("current_game_id" in data))
+            return;
+
+        this.isCompact = false;
+        this.currentGameID = data.current_game_id;
+        this.events = data.events;
+        this.users = data.users.map(user => new User(this.parent, user, true));
+    }
 }
 
-export type MatchResponse = MatchCompactResponse | MatchExtendedResponse;
-export interface MatchCompactResponse {
-    match: {
-        id: number;
-        start_time: string;
-        end_time: string | null;
+export namespace MatchProperties {
+    export interface Compact {
+        readonly id: number;
         name: string;
-    };
-}
-export interface MatchExtendedResponse extends MatchCompactResponse {
-    events: MatchEvent[];
-    users: UserCompact[];
-    first_event_id: number;
-    latest_event_id: number;
-    current_game_id: number;
-}
-export interface MatchEvent {
-    id: number;
-    detail: any;
-    timestamp: Date;
-    user_id: number;
+        startDate: Date;
+        endDate: Date | null;
+    }
+    export interface Extended {
+        currentGameID: number;
+        events: MatchEvent[];
+        users: UserCompact[];
+    }
 }

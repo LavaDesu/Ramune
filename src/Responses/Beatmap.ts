@@ -2,6 +2,7 @@ import { BeatmapsetOnlineStatus, Gamemode } from "../Enums";
 import { Score } from "./Score";
 import { UserCompact } from "./User";
 
+export type Beatmap = BeatmapCompact | BeatmapExtended;
 export interface BeatmapCompact {
     difficulty_rating: number;
     id: number;
@@ -19,7 +20,7 @@ export interface BeatmapCompact {
     max_combo?: number;
 }
 
-export interface Beatmap extends BeatmapCompact {
+export interface BeatmapExtended extends BeatmapCompact {
     accuracy: number;
     ar: number;
     beatmapset_id: number;
@@ -51,6 +52,7 @@ export interface BeatmapUserScore {
     score: Score;
 }
 
+export type Beatmapset = BeatmapsetCompact | BeatmapsetExtended;
 export interface BeatmapsetCompact {
     artist: string;
     artist_unicode: string;
@@ -78,8 +80,7 @@ export interface BeatmapsetCompact {
     // official docs say this is a string, but it isn't
     video: boolean;
 }
-
-export interface Beatmapset extends BeatmapsetCompact {
+export interface BeatmapsetExtended extends BeatmapsetCompact {
     availability: {
         download_disabled: boolean;
         more_information: string | null;
