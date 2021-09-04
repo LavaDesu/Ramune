@@ -5,7 +5,7 @@ import { URLSearchParams } from "url";
 import { RequestType } from "../Enums";
 import { Bucket } from "./";
 
-import { version as VERSION } from "../package.json";
+import { version as VERSION } from "../../package.json";
 
 export type RequestHandlerOptions = {
     defaultHost?: string;
