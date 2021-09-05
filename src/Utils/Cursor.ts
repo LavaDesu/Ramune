@@ -1,5 +1,5 @@
 import { BaseRequestObject, Client } from "../Clients";
-import { Endpoints } from "../Endpoints";
+import * as Endpoints from "../Endpoints";
 import { MatchCompact as MatchCompactResponse } from "../Responses";
 import { Match } from "../Structures";
 
@@ -193,7 +193,7 @@ export class MatchCursor extends Cursor<Match> {
             params: Record<string, string>;
         }
         const response = await this.client.internalRequest<MatchResponse>({
-            endpoint: Endpoints.API_PREFIX + Endpoints.MATCHES,
+            endpoint: Endpoints.MATCHES,
             query: {
                 ...this.state.query,
                 "cursor[match_id]": this.state.lastMatch?.toString() ?? ""

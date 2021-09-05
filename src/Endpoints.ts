@@ -1,72 +1,68 @@
-/**
- * This enum declares all accessible endpoints of osu!api v2
- */
-export enum Endpoints {
-    API_PREFIX = "/api/v2",
-    OAUTH_PREFIX = "/oauth",
+/** @module This module declares all accessible endpoints of osu!api v2 */
+export const API_PREFIX = "/api/v2";
+export const OAUTH_PREFIX = "/oauth";
 
-    TOKEN = "/token",
-    TOKEN_REVOKE = "/oauth/tokens/current",
+export const TOKEN = OAUTH_PREFIX + "/token";
+export const TOKEN_REVOKE = API_PREFIX + "/oauth/tokens/current";
 
-    BEATMAP_LOOKUP = "/beatmaps/lookup",
-    BEATMAP_SINGLE = "/beatmaps/{beatmap}",
-    BEATMAP_SCORES = "/beatmaps/{beatmap}/scores",
-    BEATMAP_USER_SCORE = "/beatmaps/{beatmap}/scores/users/{user}",
+export const BEATMAP_LOOKUP = API_PREFIX + "/beatmaps/lookup";
+export const BEATMAP_SINGLE = API_PREFIX + "/beatmaps/{beatmap}";
+export const BEATMAP_SCORES = API_PREFIX + "/beatmaps/{beatmap}/scores";
+export const BEATMAP_USER_SCORE = API_PREFIX + "/beatmaps/{beatmap}/scores/users/{user}";
 
-    BEATMAPSET_SINGLE = "/beatmapsets/{beatmapset}",
-    BEATMAPSET_DISCUSSIONS = "/beatmapsets/{beatmapset}/discussions",
-    BEATMAPSET_DISCUSSION_POSTS = "/beatmapsets/{beatmapset}/discussions/posts",
-    BEATMAPSET_DISCUSSION_VOTES = "/beatmapsets/{beatmapset}/discussions/votes",
-    BEATMAPSET_EVENTS = "/beatmapsets/events",
-    BEATMAPSET_LOOKUP = "/beatmapsets/lookup",
-    BEATMAPSET_SEARCH = "/beatmapsets/search/{filters}",
+export const BEATMAPSET_SINGLE = API_PREFIX + "/beatmapsets/{beatmapset}";
+export const BEATMAPSET_DISCUSSIONS = API_PREFIX + "/beatmapsets/{beatmapset}/discussions";
+export const BEATMAPSET_DISCUSSION_POSTS = API_PREFIX + "/beatmapsets/{beatmapset}/discussions/posts";
+export const BEATMAPSET_DISCUSSION_VOTES = API_PREFIX + "/beatmapsets/{beatmapset}/discussions/votes";
+export const BEATMAPSET_EVENTS = API_PREFIX + "/beatmapsets/events";
+export const BEATMAPSET_LOOKUP = API_PREFIX + "/beatmapsets/lookup";
+export const BEATMAPSET_SEARCH = API_PREFIX + "/beatmapsets/search/{filters}";
 
-    CHANGELOG = "/changelog",
-    CHANGELOG_SINGLE = "/changelog/{changelog}",
-    CHANGELOG_BUILD = "/changelog/{stream}/{build}",
+export const CHANGELOG = API_PREFIX + "/changelog";
+export const CHANGELOG_SINGLE = API_PREFIX + "/changelog/{changelog}";
+export const CHANGELOG_BUILD = API_PREFIX + "/changelog/{stream}/{build}";
 
-    CHAT_NEW = "/chat/new",
+export const CHAT_NEW = API_PREFIX + "/chat/new";
 
-    COMMENTS = "/comments/{comment}",
-    COMMENT_SINGLE = "/comments/{comment}",
-    COMMENT_VOTE = "/comments/{comment}/vote",
+export const COMMENTS = API_PREFIX + "/comments/{comment}";
+export const COMMENT_SINGLE = API_PREFIX + "/comments/{comment}";
+export const COMMENT_VOTE = API_PREFIX + "/comments/{comment}/vote";
 
-    FORUMS_POST_SINGLE = "/forums/posts/{post}",
-    FORUMS_TOPICS = "/forums/topics",
-    FORUMS_TOPIC_SINGLE = "/forums/topics/{topic}",
-    FORUMS_TOPIC_REPLY = "/forums/topics/{topic}/reply",
+export const FORUMS_POST_SINGLE = API_PREFIX + "/forums/posts/{post}";
+export const FORUMS_TOPICS = API_PREFIX + "/forums/topics";
+export const FORUMS_TOPIC_SINGLE = API_PREFIX + "/forums/topics/{topic}";
+export const FORUMS_TOPIC_REPLY = API_PREFIX + "/forums/topics/{topic}/reply";
 
-    FRIENDS = "/friends",
+export const FRIENDS = API_PREFIX + "/friends";
 
-    MATCHES = "/matches",
-    MATCH_SINGLE = "/matches/{match}",
+export const MATCHES = API_PREFIX + "/matches";
+export const MATCH_SINGLE = API_PREFIX + "/matches/{match}";
 
-    ME = "/me/{mode}",
+export const ME = API_PREFIX + "/me/{mode}";
 
-    NEWS = "/news",
-    NEWS_SINGLE = "/news/{news}",
+export const NEWS = API_PREFIX + "/news";
+export const NEWS_SINGLE = API_PREFIX + "/news/{news}";
 
-    RANKINGS = "/rankings/{mode}/{type}",
+export const RANKINGS = API_PREFIX + "/rankings/{mode}/{type}";
 
-    ROOMS = "/rooms/{mode}",
-    ROOM_SINGLE = "/rooms/{room}",
-    ROOM_LEADERBOARD = "/rooms/{room}/leaderboard",
-    ROOM_SCORES = "/rooms/{room}/playlist/{playlist}/scores",
+export const ROOMS = API_PREFIX + "/rooms/{mode}";
+export const ROOM_SINGLE = API_PREFIX + "/rooms/{room}";
+export const ROOM_LEADERBOARD = API_PREFIX + "/rooms/{room}/leaderboard";
+export const ROOM_SCORES = API_PREFIX + "/rooms/{room}/playlist/{playlist}/scores";
 
-    SCORE_SINGLE = "/scores/{mode}/{score}",
-    SCORE_DOWNLOAD = "/scores/{mode}/{score}/download",
+export const SCORE_SINGLE = API_PREFIX + "/scores/{mode}/{score}";
+export const SCORE_DOWNLOAD = API_PREFIX + "/scores/{mode}/{score}/download";
 
-    SEARCH = "/search",
+export const SEARCH = API_PREFIX + "/search";
 
-    SEASONAL_BACKGROUNDS = "/seasonal-backgrounds",
+export const SEASONAL_BACKGROUNDS = API_PREFIX + "/seasonal-backgrounds";
 
-    SPOTLIGHTS = "/spotlights",
+export const SPOTLIGHTS = API_PREFIX + "/spotlights";
 
-    USER_SINGLE = "/users/{user}/{mode}",
-    USER_BEATMAPSETS = "/users/{user}/beatmapsets/{type}",
-    USER_KUDOSU = "/users/{user}/kudosu",
-    USER_RECENT_ACTIVITY = "/users/{user}/recent_activity",
-    USER_SCORES = "/users/{user}/scores/{type}",
+export const USER_SINGLE = API_PREFIX + "/users/{user}/{mode}";
+export const USER_BEATMAPSETS = API_PREFIX + "/users/{user}/beatmapsets/{type}";
+export const USER_KUDOSU = API_PREFIX + "/users/{user}/kudosu";
+export const USER_RECENT_ACTIVITY = API_PREFIX + "/users/{user}/recent_activity";
+export const USER_SCORES = API_PREFIX + "/users/{user}/scores/{type}";
 
-    WIKI = "/wiki/{locale}/{path}"
-}
+export const WIKI = API_PREFIX + "/wiki/{locale}/{path}";

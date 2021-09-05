@@ -1,5 +1,5 @@
 import { Client, ClientOptions, UserClient } from "./";
-import { Endpoints } from "../Endpoints";
+import * as Endpoints from "../Endpoints";
 import { GrantType, RequestType } from "../Enums";
 import { Token } from "../Responses";
 
@@ -42,7 +42,7 @@ export class Ramune extends Client {
                 "client_secret": this.appSecret,
                 "scope": "public"
             },
-            endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
+            endpoint: Endpoints.TOKEN,
             type: RequestType.POST
         });
         this.updateToken(token);
@@ -82,7 +82,7 @@ export class Ramune extends Client {
 
         const tokenObject: Token = await this.requestHandler.request<Token>({
             body,
-            endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
+            endpoint: Endpoints.TOKEN,
             type: RequestType.POST
         });
         const instance = new UserClient(this, tokenObject, options);

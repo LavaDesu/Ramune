@@ -1,5 +1,5 @@
 import { Client, ClientOptions, Ramune } from "./";
-import { Endpoints } from "../Endpoints";
+import * as Endpoints from "../Endpoints";
 import { GrantType, RequestType } from "../Enums";
 import { MissingTokenError } from "../Errors";
 import { Token } from "../Responses";
@@ -37,7 +37,7 @@ export class UserClient extends Client {
                 "client_secret": this.parent.appSecret,
                 "refresh_token": this.token.refresh_token!
             },
-            endpoint: Endpoints.OAUTH_PREFIX + Endpoints.TOKEN,
+            endpoint: Endpoints.TOKEN,
             type: RequestType.POST
         });
         this.updateToken(token);

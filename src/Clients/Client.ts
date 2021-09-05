@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import { Endpoints } from "../Endpoints";
+import * as Endpoints from "../Endpoints";
 import { MissingTokenError } from "../Errors";
 
 import {
@@ -158,7 +158,7 @@ export abstract class Client extends EventEmitter {
         if (options.mode) query.mode = options.mode;
         if (options.mods) query.mode = options.mods.join("+");
         const response = await this.internalRequest<BeatmapScoresResponse>({
-            endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_SCORES,
+            endpoint: Endpoints.BEATMAP_SCORES,
             endpointArguments: { beatmap: id.toString() },
             query
         });
@@ -185,7 +185,7 @@ export abstract class Client extends EventEmitter {
         if (options.mode) query.mode = options.mode;
         if (options.mods) query.mode = options.mods.join("+");
         const response = await this.internalRequest<BeatmapUserScoreResponse>({
-            endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_USER_SCORE,
+            endpoint: Endpoints.BEATMAP_USER_SCORE,
             endpointArguments: { beatmap: beatmapID.toString(), user: userID.toString() },
             query
         });
@@ -200,7 +200,7 @@ export abstract class Client extends EventEmitter {
      */
     public async getBeatmapset(id: number | string): Promise<Beatmapset> {
         const response = await this.internalRequest<BeatmapsetResponse>({
-            endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAPSET_SINGLE,
+            endpoint: Endpoints.BEATMAPSET_SINGLE,
             endpointArguments: { beatmapset: id.toString() }
         });
         return new Beatmapset(this, response);
@@ -212,7 +212,7 @@ export abstract class Client extends EventEmitter {
      */
     public async getMatch(id: number | string): Promise<Match> {
         const response = await this.internalRequest<MatchResponse>({
-            endpoint: Endpoints.API_PREFIX + Endpoints.MATCH_SINGLE,
+            endpoint: Endpoints.MATCH_SINGLE,
             endpointArguments: { match: id.toString() }
         });
         return new Match(this, response);
@@ -269,7 +269,7 @@ export abstract class Client extends EventEmitter {
         return new IndexedCursor<ScoreResponse, ScoreResponse>(
             this,
             {
-                endpoint: Endpoints.API_PREFIX + Endpoints.USER_SCORES,
+                endpoint: Endpoints.USER_SCORES,
                 endpointArguments: { user: id.toString(), type },
                 query: mode ? { mode } : {}
             },
@@ -287,7 +287,7 @@ export abstract class Client extends EventEmitter {
      */
     public async getUserRaw(query: string, key: "id" | "username", mode?: Gamemode) {
         const response = await this.internalRequest<UserResponse>({
-            endpoint: Endpoints.API_PREFIX + Endpoints.USER_SINGLE,
+            endpoint: Endpoints.USER_SINGLE,
             endpointArguments: { user: query, mode: mode ?? "" },
             query: { key }
         });
@@ -298,7 +298,7 @@ export abstract class Client extends EventEmitter {
     /** @internal */
     public async getBeatmapRaw(query: number | string, type: BeatmapLookupType): Promise<BeatmapResponse> {
         const response = await this.internalRequest<BeatmapResponse>({
-            endpoint: Endpoints.API_PREFIX + Endpoints.BEATMAP_LOOKUP,
+            endpoint: Endpoints.BEATMAP_LOOKUP,
             type: RequestType.GET,
             query: { [type]: query.toString() }
         });
