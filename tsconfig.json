@@ -6,6 +6,7 @@
         "module": "commonjs",
         "composite": true,
         "declaration": true,
+        "declarationMap": true,
         "experimentalDecorators": true,
         "incremental": true,
         "noImplicitAny": true,
