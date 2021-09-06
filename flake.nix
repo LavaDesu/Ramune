@@ -10,6 +10,9 @@
     in rec {
       devShell = pkgs.mkShell {
         buildInputs = with pkgs; [ nodejs-14_x ];
+        shellHook = ''
+          export PATH="$(readlink -f ./node_modules/.bin):$PATH"
+        '';
       };
     });
 }
