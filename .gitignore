@@ -1,0 +1,11 @@
+# artifacts
+node_modules/
+docs/
+tsconfig.tsbuildinfo
+
+# These files are for nix's direnv integrations and other secrets
+.envrc
+.direnv
+
+# experiments
+exp/

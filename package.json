@@ -1,0 +1,48 @@
+{
+  "name": "ramune",
+  "description": "An osu!api v2 library.",
+  "version": "0.0.8",
+  "main": "lib/Ramune.js",
+  "types": "lib/Ramune.d.ts",
+  "license": "MIT",
+  "author": "LavaDesu <me@lava.moe> (https://lava.moe)",
+  "homepage": "https://github.com/LavaDesu/Ramune#readme",
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "docs": "ts-node --transpile-only -- scripts/docs.ts",
+    "lint": "eslint -c .eslintrc.cjs --ext .ts src",
+    "postinstall": "tsc"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LavaDesu/Ramune.git"
+  },
+  "keywords": [
+    "osu",
+    "api",
+    "wrapper",
+    "oauth2"
+  ],
+  "files": [
+    "lib"
+  ],
+  "bugs": {
+    "url": "https://github.com/LavaDesu/Ramune/issues"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^7.30.0",
+    "eslint-plugin-import": "^2.23.4",
+    "ts-node": "^10.2.0",
+    "typedoc": "^0.21.5"
+  },
+  "dependencies": {
+    "@types/node": "^14.7.3",
+    "typescript": "^4.3.5"
+  }
+}
