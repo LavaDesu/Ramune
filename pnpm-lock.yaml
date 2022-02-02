@@ -10,17 +10,15 @@ specifiers:
   typedoc: ^0.21.5
   typescript: ^4.3.5
 
-dependencies:
-  '@types/node': 14.17.9
-  typescript: 4.3.5
-
 devDependencies:
+  '@types/node': 14.17.9
   '@typescript-eslint/eslint-plugin': 4.28.3_8da3816a7c3fb8ebc9f4c4b3e4b2e38f
   '@typescript-eslint/parser': 4.28.3_eslint@7.30.0+typescript@4.3.5
   eslint: 7.30.0
   eslint-plugin-import: 2.23.4_eslint@7.30.0
   ts-node: 10.2.0_3cddbd81c3a53971a7cbc3c93cba6165
   typedoc: 0.21.5_typescript@4.3.5
+  typescript: 4.3.5
 
 packages:
 
@@ -131,7 +129,7 @@ packages:
 
   /@types/node/14.17.9:
     resolution: {integrity: sha512-CMjgRNsks27IDwI785YMY0KLt3co/c0cQ5foxHYv/shC2w8oOnVwz5Ubq1QG5KzrcW+AXk6gzdnxIkDnTvzu3g==}
-    dev: false
+    dev: true
 
   /@typescript-eslint/eslint-plugin/4.28.3_8da3816a7c3fb8ebc9f4c4b3e4b2e38f:
     resolution: {integrity: sha512-jW8sEFu1ZeaV8xzwsfi6Vgtty2jf7/lJmQmDkDruBjYAbx5DA8JtbcMnP0rNPUG+oH5GoQBTSp+9613BzuIpYg==}
@@ -1620,7 +1618,7 @@ packages:
     resolution: {integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: false
+    dev: true
 
   /uglify-js/3.14.1:
     resolution: {integrity: sha512-JhS3hmcVaXlp/xSo3PKY5R0JqKs5M3IV+exdLHW99qKvKivPO4Z8qbej6mte17SOPqAOVMjt/XGgWacnFSzM3g==}
