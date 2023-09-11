@@ -100,7 +100,7 @@ export declare abstract class Client extends EventEmitter {
      * @param type Type of rankings
      * @param options Other options
      */
-    getRankings(mode: Gamemode, type: RankingType, options: RankingOptions): RankingCursor;
+    getRankings(mode: Gamemode, type: RankingType, options?: RankingOptions): RankingCursor;
     /**
      * Gets information about a particular user
      *
@@ -158,8 +158,8 @@ export declare type BeatmapScoreOptions = {
  * Possible options for getting rankings
  */
 export declare type RankingOptions = {
-    /** Country to fetch, if type is {@link RankingType.Performance} */
-    country?: RankingType;
+    /** Country code to fetch, if type is {@link RankingType.Performance} */
+    country?: string;
     /** Filter to just friends or everyone, default: all */
     filter?: "all" | "friends";
     /** ID of spotlight, if type is {@link RankingType.Charts}, default: latest spotlight*/
