@@ -1,4 +1,6 @@
 import { BaseRequestObject, Client } from "../Clients";
+import { Gamemode, RankingType } from "../Enums";
+import { Beatmapset as BeatmapsetResponse, UserStatistics } from "../Responses";
 import { Match } from "../Structures";
 /**
  * A pagination cursor for requests that allow it
@@ -82,6 +84,32 @@ export declare class MatchCursor extends Cursor<Match> {
     constructor(client: Client);
     protected getNext(count: number): Promise<{
         value: Match[];
+        done: boolean;
+    }>;
+}
+export interface InitialRankingsParams {
+    mode: Gamemode;
+    type: RankingType;
+}
+/**
+ * A cursor for paginating the `/rankings` endpoint
+ */
+export declare class RankingCursor extends Cursor<UserStatistics> {
+    private readonly client;
+    private readonly state;
+    private readonly intitialParams;
+    private beatmapsets?;
+    private spotlight?;
+    constructor(client: Client, query: Record<string, string>, initialParams: InitialRankingsParams);
+    /**
+     * Gets spotlight information
+     * @returns void if type is not charts or data has not been queried */
+    getSpotlightInfo(): {
+        beatmapsets: BeatmapsetResponse[];
+        spotlight: unknown;
+    } | void;
+    protected getNext(): Promise<{
+        value: UserStatistics[];
         done: boolean;
     }>;
 }

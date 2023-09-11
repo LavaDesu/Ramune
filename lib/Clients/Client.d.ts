@@ -1,9 +1,9 @@
 /// <reference types="node" />
 import { EventEmitter } from "events";
-import { BeatmapLeaderboardScope, Gamemode, Mod, ScoreType } from "../Enums";
+import { BeatmapLeaderboardScope, Gamemode, Mod, RankingType, ScoreType } from "../Enums";
 import { Token, BeatmapScores as BeatmapScoresResponse, BeatmapUserScore as BeatmapUserScoreResponse, Score as ScoreResponse } from "../Responses";
 import { Beatmap, Beatmapset, Match, User } from "../Structures";
-import { IndexedCursor, MatchCursor, RequestHandler, RequestHandlerOptions, RequestObject } from "../Utils";
+import { IndexedCursor, MatchCursor, RankingCursor, RequestHandler, RequestHandlerOptions, RequestObject } from "../Utils";
 declare function tokenUpdate(token: Token): void;
 declare type ClientEvents<T> = {
     (event: "tokenUpdate", listener: typeof tokenUpdate): T;
@@ -94,6 +94,14 @@ export declare abstract class Client extends EventEmitter {
      */
     getMatches(): MatchCursor;
     /**
+     * Gets top rankings
+     *
+     * @param mode Gamemode to get rankings for
+     * @param type Type of rankings
+     * @param options Other options
+     */
+    getRankings(mode: Gamemode, type: RankingType, options: RankingOptions): RankingCursor;
+    /**
      * Gets information about a particular user
      *
      * @param id The user ID
@@ -145,6 +153,19 @@ export declare type BeatmapScoreOptions = {
     mode?: Gamemode;
     /** Mods to filter (exact combination) */
     mods?: Mod[];
+};
+/**
+ * Possible options for getting rankings
+ */
+export declare type RankingOptions = {
+    /** Country to fetch, if type is {@link RankingType.Performance} */
+    country?: RankingType;
+    /** Filter to just friends or everyone, default: all */
+    filter?: "all" | "friends";
+    /** ID of spotlight, if type is {@link RankingType.Charts}, default: latest spotlight*/
+    spotlight?: number;
+    /** Filter variant to 4k or 7k, if mode is {@link Gamemode.Mania} and type is {@link RankingType.Performance}*/
+    variant?: Gamemode;
 };
 export {};
 //# sourceMappingURL=Client.d.ts.map
