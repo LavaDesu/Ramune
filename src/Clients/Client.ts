@@ -235,7 +235,7 @@ export abstract class Client extends EventEmitter {
      * @param type Type of rankings
      * @param options Other options
      */
-    public getRankings(mode: Gamemode, type: RankingType, options: RankingOptions): RankingCursor {
+    public getRankings(mode: Gamemode, type: RankingType, options?: RankingOptions): RankingCursor {
         // @ts-expect-error 2322 dw
         const query: Record<string, string> = { ...options };
         if (query.spotlight)
@@ -363,8 +363,8 @@ export type BeatmapScoreOptions = {
  * Possible options for getting rankings
  */
 export type RankingOptions = {
-    /** Country to fetch, if type is {@link RankingType.Performance} */
-    country?: RankingType;
+    /** Country code to fetch, if type is {@link RankingType.Performance} */
+    country?: string;
     /** Filter to just friends or everyone, default: all */
     filter?: "all" | "friends";
     /** ID of spotlight, if type is {@link RankingType.Charts}, default: latest spotlight*/
