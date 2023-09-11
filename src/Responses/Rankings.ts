@@ -2,7 +2,7 @@ import { Beatmapset } from "./Beatmap";
 import { UserStatistics } from "./User";
 
 export interface Rankings {
-    cursor: Record<string, unknown>;
+    cursor: { page: number };
     /** Ordered by user ranks in descending order */
     ranking: UserStatistics[];
     /** Approximate of rankings */

@@ -233,7 +233,7 @@ export class RankingCursor extends Cursor<UserStatistics> {
     private readonly client: Client;
     private readonly state: {
         query: Record<string, string>;
-        lastPage: number;
+        nextPage: number;
         done: boolean;
     };
 
@@ -247,7 +247,7 @@ export class RankingCursor extends Cursor<UserStatistics> {
         this.intitialParams = initialParams;
         this.state = {
             query,
-            lastPage: 1,
+            nextPage: 1,
             done: false
         };
     }
@@ -276,12 +276,13 @@ export class RankingCursor extends Cursor<UserStatistics> {
             endpoint: Endpoints.RANKINGS.replace("{mode}", this.intitialParams.mode).replace("{type}", this.intitialParams.type),
             query: {
                 ...this.state.query,
-                "cursor[page]": this.state.lastPage.toString()
+                "cursor[page]": this.state.nextPage.toString()
             }
         });
 
         this.beatmapsets = response.beatmapsets;
         this.spotlight = response.spotlight;
+        this.state.nextPage = response.cursor.page;
 
         if (response.ranking.length < 50)
             this.state.done = true;
