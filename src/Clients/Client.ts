@@ -7,6 +7,7 @@ import {
     BeatmapLookupType,
     Gamemode,
     Mod,
+    RankingType,
     RequestType,
     ScoreType
 } from "../Enums";
@@ -29,6 +30,7 @@ import {
 import {
     IndexedCursor,
     MatchCursor,
+    RankingCursor,
     RequestHandler,
     RequestHandlerOptions,
     RequestObject
@@ -227,6 +229,23 @@ export abstract class Client extends EventEmitter {
 
 
     /**
+     * Gets top rankings
+     *
+     * @param mode Gamemode to get rankings for
+     * @param type Type of rankings
+     * @param options Other options
+     */
+    public getRankings(mode: Gamemode, type: RankingType, options: RankingOptions): RankingCursor {
+        // @ts-expect-error 2322 dw
+        const query: Record<string, string> = { ...options };
+        if (query.spotlight)
+            query.spotlight = query.spotlight.toString();
+
+        return new RankingCursor(this, query, { type, mode });
+    }
+
+
+    /**
      * Gets information about a particular user
      *
      * @param id The user ID
@@ -338,4 +357,18 @@ export type BeatmapScoreOptions = {
     mode?: Gamemode;
     /** Mods to filter (exact combination) */
     mods?: Mod[];
+};
+
+/**
+ * Possible options for getting rankings
+ */
+export type RankingOptions = {
+    /** Country to fetch, if type is {@link RankingType.Performance} */
+    country?: RankingType;
+    /** Filter to just friends or everyone, default: all */
+    filter?: "all" | "friends";
+    /** ID of spotlight, if type is {@link RankingType.Charts}, default: latest spotlight*/
+    spotlight?: number;
+    /** Filter variant to 4k or 7k, if mode is {@link Gamemode.Mania} and type is {@link RankingType.Performance}*/
+    variant?: Gamemode;
 };

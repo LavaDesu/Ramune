@@ -1,6 +1,12 @@
 import { BaseRequestObject, Client } from "../Clients";
 import * as Endpoints from "../Endpoints";
-import { MatchCompact as MatchCompactResponse } from "../Responses";
+import { Gamemode, RankingType } from "../Enums";
+import {
+    Beatmapset as BeatmapsetResponse,
+    MatchCompact as MatchCompactResponse,
+    Rankings as RankingsResponse,
+    UserStatistics
+} from "../Responses";
 import { Match } from "../Structures";
 
 // TODO: this needs a dedicated documentation page
@@ -210,6 +216,80 @@ export class MatchCursor extends Cursor<Match> {
 
         return {
             value: matches,
+            done: this.state.done
+        };
+    }
+}
+
+export interface InitialRankingsParams {
+    mode: Gamemode;
+    type: RankingType;
+}
+
+/**
+ * A cursor for paginating the `/rankings` endpoint
+ */
+export class RankingCursor extends Cursor<UserStatistics> {
+    private readonly client: Client;
+    private readonly state: {
+        query: Record<string, string>;
+        lastPage: number;
+        done: boolean;
+    };
+
+    private readonly intitialParams: InitialRankingsParams;
+    private beatmapsets?: BeatmapsetResponse[];
+    private spotlight?: unknown;
+
+    constructor(client: Client, query: Record<string, string>, initialParams: InitialRankingsParams) {
+        super();
+        this.client = client;
+        this.intitialParams = initialParams;
+        this.state = {
+            query,
+            lastPage: 1,
+            done: false
+        };
+    }
+
+    /**
+     * Gets spotlight information
+     * @returns void if type is not charts or data has not been queried */
+    public getSpotlightInfo(): { beatmapsets: BeatmapsetResponse[]; spotlight: unknown } | void {
+        if (this.beatmapsets && this.spotlight)
+            return {
+                beatmapsets: this.beatmapsets,
+                spotlight: this.spotlight
+            };
+
+        return;
+    }
+
+    protected async getNext() {
+        if (this.state.done)
+            return {
+                value: [],
+                done: true
+            };
+
+        const response = await this.client.internalRequest<RankingsResponse>({
+            endpoint: Endpoints.RANKINGS.replace("{mode}", this.intitialParams.mode).replace("{type}", this.intitialParams.type),
+            query: {
+                ...this.state.query,
+                "cursor[page]": this.state.lastPage.toString()
+            }
+        });
+
+        this.beatmapsets = response.beatmapsets;
+        this.spotlight = response.spotlight;
+
+        if (response.ranking.length < 50)
+            this.state.done = true;
+
+        const rankings = response.ranking;
+
+        return {
+            value: rankings,
             done: this.state.done
         };
     }
