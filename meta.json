@@ -14650,7 +14650,9 @@
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isOptional": true
+									},
 									"comment": {
 										"text": "Other options\n"
 									},
@@ -22944,7 +22946,9 @@
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isOptional": true
+									},
 									"comment": {
 										"text": "Other options\n"
 									},
@@ -28849,7 +28853,9 @@
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isOptional": true
+									},
 									"comment": {
 										"text": "Other options\n"
 									},
@@ -31282,12 +31288,11 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Country to fetch, if type is {@link RankingType.Performance}"
+								"shortText": "Country code to fetch, if type is {@link RankingType.Performance}"
 							},
 							"type": {
-								"type": "reference",
-								"id": 2032,
-								"name": "RankingType"
+								"type": "intrinsic",
+								"name": "string"
 							}
 						},
 						{
