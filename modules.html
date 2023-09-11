@@ -91,6 +91,7 @@
 								<li class="tsd-kind-class"><a href="classes/MatchCursor.html" class="tsd-kind-icon">Match<wbr>Cursor</a></li>
 								<li class="tsd-kind-class"><a href="classes/MissingTokenError.html" class="tsd-kind-icon">Missing<wbr>Token<wbr>Error</a></li>
 								<li class="tsd-kind-class"><a href="classes/Ramune.html" class="tsd-kind-icon">Ramune</a></li>
+								<li class="tsd-kind-class"><a href="classes/RankingCursor.html" class="tsd-kind-icon">Ranking<wbr>Cursor</a></li>
 								<li class="tsd-kind-class"><a href="classes/RequestHandler.html" class="tsd-kind-icon">Request<wbr>Handler</a></li>
 								<li class="tsd-kind-class"><a href="classes/RequestNetworkError.html" class="tsd-kind-icon">Request<wbr>Network<wbr>Error</a></li>
 								<li class="tsd-kind-class"><a href="classes/User.html" class="tsd-kind-icon">User</a></li>
@@ -100,6 +101,7 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/InitialRankingsParams.html" class="tsd-kind-icon">Initial<wbr>Rankings<wbr>Params</a></li>
 								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/LazyConstructor.html" class="tsd-kind-icon">Lazy<wbr>Constructor</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/NamedID.html" class="tsd-kind-icon">NamedID</a></li>
 							</ul>
@@ -112,6 +114,7 @@
 								<li class="tsd-kind-type-alias"><a href="modules.html#ClientOptions" class="tsd-kind-icon">Client<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#Compact" class="tsd-kind-icon">Compact</a></li>
 								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#Processor" class="tsd-kind-icon">Processor</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#RankingOptions" class="tsd-kind-icon">Ranking<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#RequestError" class="tsd-kind-icon">Request<wbr>Error</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#RequestHandlerOptions" class="tsd-kind-icon">Request<wbr>Handler<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#RequestObject" class="tsd-kind-icon">Request<wbr>Object</a></li>
@@ -286,6 +289,55 @@
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 									</li>
 								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="RankingOptions" class="tsd-anchor"></a>
+					<h3>Ranking<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">Ranking<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>country<span class="tsd-signature-symbol">?: </span><a href="modules.html#RankingType" class="tsd-signature-type" data-tsd-kind="Variable">RankingType</a><span class="tsd-signature-symbol">; </span>filter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">&quot;all&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;friends&quot;</span><span class="tsd-signature-symbol">; </span>spotlight<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>variant<span class="tsd-signature-symbol">?: </span><a href="modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Possible options for getting rankings</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> country<span class="tsd-signature-symbol">?: </span><a href="modules.html#RankingType" class="tsd-signature-type" data-tsd-kind="Variable">RankingType</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Country to fetch, if type is {@link RankingType.Performance}</p>
+									</div>
+								</div>
+							</li>
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> filter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">&quot;all&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;friends&quot;</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Filter to just friends or everyone, default: all</p>
+									</div>
+								</div>
+							</li>
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> spotlight<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>ID of spotlight, if type is {@link RankingType.Charts}, default: latest spotlight</p>
+									</div>
+								</div>
+							</li>
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> variant<span class="tsd-signature-symbol">?: </span><a href="modules.html#Gamemode" class="tsd-signature-type" data-tsd-kind="Variable">Gamemode</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Filter variant to 4k or 7k, if mode is {@link Gamemode.Mania} and type is {@link RankingType.Performance}</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -1242,6 +1294,9 @@
 						<a href="classes/Ramune.html" class="tsd-kind-icon">Ramune</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/RankingCursor.html" class="tsd-kind-icon">Ranking<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/RequestHandler.html" class="tsd-kind-icon">Request<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -1252,6 +1307,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/UserClient.html" class="tsd-kind-icon">User<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/InitialRankingsParams.html" class="tsd-kind-icon">Initial<wbr>Rankings<wbr>Params</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="interfaces/LazyConstructor.html" class="tsd-kind-icon">Lazy<wbr>Constructor</a>
@@ -1273,6 +1331,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 						<a href="modules.html#Processor" class="tsd-kind-icon">Processor</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#RankingOptions" class="tsd-kind-icon">Ranking<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#RequestError" class="tsd-kind-icon">Request<wbr>Error</a>
